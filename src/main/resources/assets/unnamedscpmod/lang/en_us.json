@@ -1,0 +1,44 @@
+{
+  "item.unnamedscpmod.telekill": "Telekill",
+  "item.unnamedscpmod.telekill_upgrade_template": "Telekill Upgrade Template",
+  "item.unnamedscpmod.raw_telekill": "Raw Telekill",
+  "item.unnamedscpmod.scp-310_eternal_flame": "SCP 310-The Eternal Flame",
+  "item.unnamedscpmod.class-a_amnestic": "Class A Amnestic",
+  "item.unnamedscpmod.scp939_spike": "Dorsal Spike",
+  "item.unnamedscpmod.scp999_gello": "Gello",
+
+
+  "block.unnamedscpmod.telekill_block": "Block of Telekill",
+  "block.unnamedscpmod.raw_telekill_block": "Block of Raw Telekill",
+  "block.unnamedscpmod.telekill_ore": "Telekill Ore",
+  "block.unnamedscpmod.deepslate_telekill_ore": "Deepslate Telekill Ore",
+  "block.unnamedscpmod.floor_tiles": "Floor Tiles",
+  "block.unnamedscpmod.flesh_block": "Flesh Block",
+  "block.unnamedscpmod.flesh_sponge_block": "Disgusting Flesh Block",
+  "block.unnamedscpmod.eternal_flame_block": "Eternal Flame Block",
+
+
+
+  "creativetab.scp_items_tab": "SCP Items",
+
+  "effect.unnamedscpmod.eternal_flame": "Eternal Flame",
+
+
+
+
+
+
+
+  "item.unnamedscpmod.scp3000_y9o9": "Bottle of Y9O9",
+  "item.unnamedscpmod.bottle_of_iron": "Bottle of Liquid Iron",
+  "item.unnamedscpmod.bottle_of_diamonds": "Bottle of Liquid Diamonds",
+  "item.unnamedscpmod.bottle_of_copper": "Bottle of Liquid Copper",
+  "item.unnamedscpmod.bottle_of_lapislazuli": "Bottle of Liquid Lapis Lazuli",
+  "item.unnamedscpmod.bottle_of_quartz": "Bottle of Liquid Quartz",
+  "item.unnamedscpmod.bottle_of_gold": "Bottle of Liquid Gold",
+  "item.unnamedscpmod.bottle_of_coal": "Bottle of Liquid Coal",
+  "item.unnamedscpmod.bottle_of_netherite": "Bottle of Liquid Netherite",
+  "item.unnamedscpmod.bottle_of_emeralds": "Bottle of Liquid Emeralds",
+  "item.unnamedscpmod.bottle_of_telekill": "Bottle of Liquid Telekill",
+  "item.unnamedscpmod.bottle_of_gore": "Bottle of Gore"
+}

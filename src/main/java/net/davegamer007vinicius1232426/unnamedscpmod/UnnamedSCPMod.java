@@ -1,6 +1,10 @@
 package net.davegamer007vinicius1232426.unnamedscpmod;
 
 import com.mojang.logging.LogUtils;
+import net.davegamer007vinicius1232426.unnamedscpmod.block.ModBlocks;
+import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.ModCreativeTabs;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -26,12 +30,17 @@ public class UnnamedSCPMod
     public UnnamedSCPMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModEffects.register(modEventBus);
+        ModCreativeTabs.register(modEventBus);
+
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
-
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
