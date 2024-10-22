@@ -5,6 +5,8 @@ import net.davegamer007vinicius1232426.unnamedscpmod.block.ModBlocks;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModCreativeTabs;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -64,7 +66,7 @@ public class UnnamedSCPMod
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.ETERNAL_FLAME_BLOCK.get(), RenderType.cutout());
         }
     }
 }

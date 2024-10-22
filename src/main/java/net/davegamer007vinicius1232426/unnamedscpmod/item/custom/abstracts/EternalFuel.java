@@ -12,4 +12,8 @@ public abstract class EternalFuel extends BaseFuelItem {
     public boolean hasCraftingRemainingItem(ItemStack stack) {
         return true;
     }
+    @Override
+    public ItemStack getCraftingRemainingItem(ItemStack stack) {
+        return stack.copyWithCount(1);
+    }
 }
