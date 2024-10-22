@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "group": "telekill",
+  "ingredient": {
+    "item": "unnamedscpmod:telekill_ore"
+  },
+  "result": "unnamedscpmod:telekill"
+}

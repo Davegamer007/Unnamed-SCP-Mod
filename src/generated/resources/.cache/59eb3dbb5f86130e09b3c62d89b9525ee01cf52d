@@ -1,0 +1,8 @@
+// 1.20.1	2024-10-22T15:24:36.4395781	Loot Tables
+22769be7a1bf3fd3442b1f91672e35338af87b4f data/unnamedscpmod/loot_tables/blocks/deepslate_telekill_ore.json
+74d9755b13806a89914ee76ae68bd50d66e686a9 data/unnamedscpmod/loot_tables/blocks/flesh_block.json
+be998172cf0a96c474d137862ef59c265726161a data/unnamedscpmod/loot_tables/blocks/flesh_sponge_block.json
+aff2504d54d629665b580f6917ad8eb5a3991056 data/unnamedscpmod/loot_tables/blocks/floor_tiles.json
+5545579a9f9c81dd19a581dc8d9794840d8b19fb data/unnamedscpmod/loot_tables/blocks/raw_telekill_block.json
+cf173026b3a272d95230c8d5b68526e0f3b495ec data/unnamedscpmod/loot_tables/blocks/telekill_block.json
+eb14c42ec91f953aba23cf4622aa62a80d99c54a data/unnamedscpmod/loot_tables/blocks/telekill_ore.json

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "unnamedscpmod:scp3000_y9o9"
+    },
+    {
+      "item": "unnamedscpmod:scp939_spike"
+    },
+    {
+      "item": "unnamedscpmod:scp939_spike"
+    }
+  ],
+  "result": {
+    "item": "unnamedscpmod:class-a_amnestic"
+  }
+}

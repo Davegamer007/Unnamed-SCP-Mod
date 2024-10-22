@@ -1,0 +1,4 @@
+// 1.20.1	2024-10-22T15:24:36.4395781	Tags for minecraft:block mod id unnamedscpmod
+20f0fe7db4709ad8a5908328be064a18fb899d60 data/minecraft/tags/blocks/mineable/pickaxe.json
+7e015168740187dc6cf97e5cf1dcb5e0220173f6 data/minecraft/tags/blocks/needs_iron_tool.json
+1bbb9237e68a27ab6fe45772bf3236c0fad717de data/unnamedscpmod/tags/blocks/is_ore.json

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_telekill_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unnamedscpmod:telekill_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "unnamedscpmod:telekill_from_blasting_telekill_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_telekill_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "unnamedscpmod:telekill_from_blasting_telekill_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

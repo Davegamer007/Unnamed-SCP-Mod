@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "group": "telekill",
+  "ingredient": {
+    "item": "unnamedscpmod:raw_telekill"
+  },
+  "result": "unnamedscpmod:telekill"
+}

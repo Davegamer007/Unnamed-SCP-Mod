@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_scp3000_y9o9": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unnamedscpmod:scp3000_y9o9"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "unnamedscpmod:class-a_amnestic"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_scp3000_y9o9",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "unnamedscpmod:class-a_amnestic"
+    ]
+  },
+  "sends_telemetry_event": false
+}

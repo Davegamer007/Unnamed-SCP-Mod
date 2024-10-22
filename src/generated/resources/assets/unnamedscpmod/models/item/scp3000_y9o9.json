@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "unnamedscpmod:item/scp3000_y9o9"
+  }
+}

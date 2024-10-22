@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "unnamedscpmod:item/scp-310_eternal_flame"
+  }
+}
