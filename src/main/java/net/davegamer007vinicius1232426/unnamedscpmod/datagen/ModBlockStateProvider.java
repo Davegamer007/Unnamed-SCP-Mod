@@ -27,8 +27,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlock(ModBlocks.ETERNAL_FLAME_BLOCK.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/eternal_flame_block")));
-
-
     }
     private void blockWithItem(RegistryObject<Block> blockRegistryObject){
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));

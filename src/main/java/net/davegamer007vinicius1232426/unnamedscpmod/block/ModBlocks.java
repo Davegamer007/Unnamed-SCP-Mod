@@ -37,8 +37,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> FLESH_SPONGE_BLOCK = registerBlock("flesh_sponge_block",
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK).sound(SoundType.HONEY_BLOCK).destroyTime(200)));
 
-    public static final RegistryObject<Block> ETERNAL_FLAME_BLOCK = registerBlock("flesh_sponge_block",
-            ()-> new Eternal_Flame_Block(BlockBehaviour.Properties.copy(Blocks.FIRE).strength(-1).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> ETERNAL_FLAME_BLOCK = registerBlock("eternal_flame_block",
+            ()-> new Eternal_Flame_Block(BlockBehaviour.Properties.copy(Blocks.FIRE).strength(-1).pushReaction(PushReaction.DESTROY).noLootTable()));
+
+
+
+
+
+
+
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
