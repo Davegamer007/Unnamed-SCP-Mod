@@ -1,6 +1,7 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.item.custom;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.block.ModBlocks;
+import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.Eternal_Flame_Block;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPFuelItem;
 import net.minecraft.core.BlockPos;
@@ -13,10 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseFireBlock;
-import net.minecraft.world.level.block.CampfireBlock;
-import net.minecraft.world.level.block.CandleBlock;
-import net.minecraft.world.level.block.CandleCakeBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 
@@ -35,7 +33,7 @@ public class SCP310Item extends SCPFuelItem {
         BlockState pOutputBlock = ModBlocks.ETERNAL_FLAME_BLOCK.get().defaultBlockState();
 
         if (!CampfireBlock.canLight(pBlockState) && !CandleBlock.canLight(pBlockState) && !CandleCakeBlock.canLight(pBlockState)) {
-            if (BaseFireBlock.canBePlacedAt(pLevel, pClickedFace, pContext.getHorizontalDirection())) {
+            if (Eternal_Flame_Block.canBePlacedAt(pBlockState,pLevel,pClickedFace)) {
                 pLevel.playSound(pPlayer, pClickedFace, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, pLevel.getRandom().nextFloat() * 0.4F + 0.8F);
                 pLevel.setBlock(pClickedFace, pOutputBlock, 11);
                 pLevel.gameEvent(pPlayer, GameEvent.BLOCK_PLACE, pBlockPos);

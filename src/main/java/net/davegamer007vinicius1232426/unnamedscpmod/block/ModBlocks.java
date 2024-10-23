@@ -38,7 +38,8 @@ public class ModBlocks {
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK).sound(SoundType.HONEY_BLOCK).destroyTime(200)));
 
     public static final RegistryObject<Block> ETERNAL_FLAME_BLOCK = registerBlock("eternal_flame_block",
-            ()-> new Eternal_Flame_Block(BlockBehaviour.Properties.copy(Blocks.FIRE).strength(-1).pushReaction(PushReaction.DESTROY).noLootTable()));
+            ()-> new Eternal_Flame_Block(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(-1).pushReaction(PushReaction.DESTROY).noLootTable()
+                    .lightLevel((p_152607_) -> {return 15;}).noCollission().noOcclusion()));
 
 
 

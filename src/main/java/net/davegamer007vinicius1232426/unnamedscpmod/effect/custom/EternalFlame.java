@@ -7,6 +7,13 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.WaterFluid;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.fluids.FluidType;
+
+import java.util.List;
 
 public class EternalFlame extends MobEffect {
     public EternalFlame(MobEffectCategory mobEffectCategory, int color) {
@@ -15,8 +22,8 @@ public class EternalFlame extends MobEffect {
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         pLivingEntity.hurt(pLivingEntity.damageSources().onFire(), 1.0F);
-        if (!pLivingEntity.fireImmune()) {
-            pLivingEntity.setRemainingFireTicks(pLivingEntity.getRemainingFireTicks() + 1);
+        if (!pLivingEntity.fireImmune() && !pLivingEntity.isInWaterOrRain() && !pLivingEntity.isInPowderSnow) {
+            pLivingEntity.setSecondsOnFire(8);
             if (pLivingEntity.getRemainingFireTicks() == 0) {
                 pLivingEntity.setSecondsOnFire(8);
             }
@@ -32,5 +39,10 @@ public class EternalFlame extends MobEffect {
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
         return true;
+    }
+
+    @Override
+    public List<ItemStack> getCurativeItems() {
+        return List.of();
     }
 }
