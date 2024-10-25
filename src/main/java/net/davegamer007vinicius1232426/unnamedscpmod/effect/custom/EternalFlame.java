@@ -27,14 +27,11 @@ public class EternalFlame extends MobEffect {
     }
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        pLivingEntity.hurt(pLivingEntity.damageSources().onFire(), 1.0F);
-        for(int i = 0; i < 10; i++){
-            if (i == 0)
-                generateParticles(pLivingEntity);
+        generateParticles(pLivingEntity);
+
+        if (!pLivingEntity.fireImmune() && !pLivingEntity.isOnFire()){
+            pLivingEntity.hurt(pLivingEntity.damageSources().onFire(), 1.0F);
         }
-
-
-
         if (!pLivingEntity.fireImmune() && !pLivingEntity.isInWaterOrRain() && !pLivingEntity.isInPowderSnow) {
             pLivingEntity.setSecondsOnFire(8);
             if (pLivingEntity.getRemainingFireTicks() == 0) {
@@ -61,16 +58,15 @@ public class EternalFlame extends MobEffect {
 
     public static void generateParticles(LivingEntity pLivingEntity){
         RandomSource pRandom = RandomSource.create();
-
-        Double dx = (double)pLivingEntity.getX() + pRandom.nextDouble();
+        Double dx = (double)pLivingEntity.getX() + pRandom.nextDouble() * 0.5 -0.15;
         Double dy = (double)pLivingEntity.getY() + pRandom.nextDouble() * 0.5;
-        Double dz = (double)pLivingEntity.getZ() + pRandom.nextDouble();
-
-
-
-        pLivingEntity.level().addParticle(ModParticles.ETERNAL_EMBERS.get(),
-                dx, dy, dz,
-                0,0, 0);
+        Double dz = (double)pLivingEntity.getZ() + pRandom.nextDouble() * 0.5 -0.15;
+        for(int i = 0; i < 20; i++){
+            if (i == 0)
+                pLivingEntity.level().addParticle(ModParticles.ETERNAL_EMBERS.get(),
+                    dx, dy, dz,
+                    0,0, 0);
+        }
     }
 }
 

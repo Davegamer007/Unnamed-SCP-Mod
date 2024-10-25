@@ -13,7 +13,7 @@ public class ModParticles {
             DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, UnnamedSCPMod.MOD_ID);
 
     public static final RegistryObject<SimpleParticleType> ETERNAL_EMBERS =
-            PARTICLE_TYPES.register("eternal_embers", () -> new SimpleParticleType(true));
+            PARTICLE_TYPES.register("eternal_embers", () -> new SimpleParticleType(false));
 
     public static void register(IEventBus eventBus) {
         PARTICLE_TYPES.register(eventBus);
