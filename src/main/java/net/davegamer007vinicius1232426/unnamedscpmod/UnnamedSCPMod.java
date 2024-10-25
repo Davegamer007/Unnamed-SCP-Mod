@@ -6,6 +6,7 @@ import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModCreativeTabs;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
 import net.davegamer007vinicius1232426.unnamedscpmod.particle.ModParticles;
+import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;

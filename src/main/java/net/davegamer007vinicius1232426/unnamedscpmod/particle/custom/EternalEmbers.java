@@ -15,8 +15,8 @@ public class EternalEmbers extends TextureSheetParticle {
         this.xd = xd;
         this.yd = yd;
         this.zd = yd;
-        this.quadSize *= 0.5f;
-        this.lifetime = 20;
+        this.quadSize *= 0.8f;
+        this.lifetime = 32;
         this.setSpriteFromAge(pSprites);
 
         this.rCol = 1.0f;

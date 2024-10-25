@@ -14,7 +14,7 @@ public class ModEffects {
             DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, UnnamedSCPMod.MOD_ID);
 
     public static final RegistryObject<MobEffect> ETERNAL_FLAME = MOB_EFFECTS.register("eternal_flame",
-            ()-> new EternalFlame(MobEffectCategory.HARMFUL, 2428253));
+            ()-> new EternalFlame(MobEffectCategory.HARMFUL, 0));
 
 
 

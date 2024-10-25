@@ -1,6 +1,7 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.block.custom;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
+import net.davegamer007vinicius1232426.unnamedscpmod.particle.ModParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -57,8 +58,10 @@ public class Eternal_Flame_Block extends FallingBlock implements SimpleWaterlogg
             d17 = (double)pPos.getZ() + pRandom.nextDouble();
             if (isNotUnderwater(pState)){
                 pLevel.addParticle(ParticleTypes.LARGE_SMOKE, d7, d12, d17, 0.0, 0.0, 0.0);
+                pLevel.addParticle(ModParticles.ETERNAL_EMBERS.get(), d7,d12, d17, 0.0, 0.0, 0.0);
             } else
                 pLevel.addParticle(ParticleTypes.BUBBLE_COLUMN_UP, d7, d12, d17, 0.0, 0.0, 0.0);
+                pLevel.addParticle(ModParticles.ETERNAL_EMBERS.get(), d7,d12, d17, 0.0, 0.0, 0.0);
         }
         if (!pState.canSurvive(pLevel, pPos)) {
             pLevel.destroyBlock(pPos,false);
