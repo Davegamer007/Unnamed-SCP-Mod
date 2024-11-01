@@ -30,6 +30,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createOreDrop(ModBlocks.TELEKILL_ORE.get(), ModItems.RAW_TELEKILL.get()));
         this.add(ModBlocks.DEEPSLATE_TELEKILL_ORE.get(),
                 block -> createOreDrop(ModBlocks.DEEPSLATE_TELEKILL_ORE.get(), ModItems.RAW_TELEKILL.get()));
+
+        this.add(ModBlocks.SALT_BLOCK.get(),
+                block -> createMushroomBlockDrop(ModBlocks.SALT_BLOCK.get(), ModItems.SALT.get()));
     }
 
 

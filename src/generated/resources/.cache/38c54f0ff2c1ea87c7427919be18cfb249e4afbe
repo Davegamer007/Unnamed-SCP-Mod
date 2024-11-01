@@ -1,10 +1,11 @@
-// 1.20.1	2024-10-22T15:24:36.4385772	Block States: unnamedscpmod
+// 1.20.1	2024-11-01T15:33:03.686321348	Block States: unnamedscpmod
 41befabb450ad3b5990d385bdbe412874819c3bc assets/unnamedscpmod/blockstates/deepslate_telekill_ore.json
 f996273a7d0437c71670ced5d201ddac299df237 assets/unnamedscpmod/blockstates/eternal_flame_block.json
 014774d59a58b694a16c94e20bc181587a61711f assets/unnamedscpmod/blockstates/flesh_block.json
 836f9838fc68a9fe2c6d95cab34a086ea0a9f1c1 assets/unnamedscpmod/blockstates/flesh_sponge_block.json
 ec6abdc7ae809346fa98f4473a0ca32e99760544 assets/unnamedscpmod/blockstates/floor_tiles.json
 a9b5aa444daf6039aa9d287c3c001cf29947b81c assets/unnamedscpmod/blockstates/raw_telekill_block.json
+aebd29016882bf8544f6fb394f14136f42ffc415 assets/unnamedscpmod/blockstates/salt_block.json
 c99d385f7e1ac3a7190ec90f68a3eb5119c808bf assets/unnamedscpmod/blockstates/telekill_block.json
 149aa2d04a406cea7b976f678f6eb4bff5288c68 assets/unnamedscpmod/blockstates/telekill_ore.json
 dae31553e1b6a2252b343b6e52a2bc99ff519674 assets/unnamedscpmod/models/block/deepslate_telekill_ore.json
@@ -12,6 +13,7 @@ a5a17c82be2788f3508617ff5679a0428df1e491 assets/unnamedscpmod/models/block/flesh
 e33b5609d7fcb48ddc7b2424af480d92cf774fb8 assets/unnamedscpmod/models/block/flesh_sponge_block.json
 9264c485d21249d5708fd0f64b66698663e2a0ee assets/unnamedscpmod/models/block/floor_tiles.json
 7b5eb4e1f447fb8e44a60428a9c63342dd027854 assets/unnamedscpmod/models/block/raw_telekill_block.json
+8065cbfd44ba641f000a5115839bb52e8409ce75 assets/unnamedscpmod/models/block/salt_block.json
 90cecf6cdaee628fc3196cdb0d6004075b970ea6 assets/unnamedscpmod/models/block/telekill_block.json
 5f6a9fd24742e2e2068182d5c8293d4cc684d86c assets/unnamedscpmod/models/block/telekill_ore.json
 82def4cdb07bdea198dce6547ef2637513bc3a6b assets/unnamedscpmod/models/item/deepslate_telekill_ore.json
@@ -19,5 +21,6 @@ e33b5609d7fcb48ddc7b2424af480d92cf774fb8 assets/unnamedscpmod/models/block/flesh
 011b3f5cb1e52e2e080c4d82a705cb19c62e458e assets/unnamedscpmod/models/item/flesh_sponge_block.json
 aade3c9bd3fa79c21718564282abab68bfada00f assets/unnamedscpmod/models/item/floor_tiles.json
 8b49deeb0f99a7b187a37521e0af10a2c06830eb assets/unnamedscpmod/models/item/raw_telekill_block.json
+dd0918e8ecd86b07ff4ecde6d3498a76785340aa assets/unnamedscpmod/models/item/salt_block.json
 722d76b235e5299ec066219c9281f0e99c971dd6 assets/unnamedscpmod/models/item/telekill_block.json
 8cc41976e7cb66c130f1f3f063051b9e24b4e87b assets/unnamedscpmod/models/item/telekill_ore.json

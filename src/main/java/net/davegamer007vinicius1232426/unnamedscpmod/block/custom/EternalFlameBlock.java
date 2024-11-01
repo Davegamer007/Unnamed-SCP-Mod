@@ -28,15 +28,12 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.portal.PortalShape;
 
 import javax.annotation.Nullable;
 
-import static net.minecraft.world.level.block.BaseFireBlock.getState;
-
-public class Eternal_Flame_Block extends FallingBlock implements SimpleWaterloggedBlock {
+public class EternalFlameBlock extends FallingBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public Eternal_Flame_Block(Properties pProperties) {
+    public EternalFlameBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(WATERLOGGED, false)));
     }

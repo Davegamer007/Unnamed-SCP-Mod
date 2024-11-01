@@ -2,6 +2,7 @@ package net.davegamer007vinicius1232426.unnamedscpmod.item;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP310Item;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP622;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
@@ -22,6 +23,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> SCP310 = ITEMS.register("scp-310_eternal_flame",
             ()-> new SCP310Item(new Item.Properties().fireResistant().rarity(Rarity.EPIC).stacksTo(1)));
+    public static final RegistryObject<Item> SCP622 = ITEMS.register("scp622",
+            ()-> new SCP622(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
 
     public static final RegistryObject<Item> CLASS_A_AMNESTIC = ITEMS.register("class-a_amnestic",
@@ -29,6 +32,8 @@ public class ModItems {
     public static final RegistryObject<Item> SPC939SPIKE = ITEMS.register("scp939_spike",
             ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> SCP999GELLO = ITEMS.register("scp999_gello",
+            ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SALT = ITEMS.register("salt",
             ()-> new Item(new Item.Properties()));
 
 

@@ -1,7 +1,8 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.block;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
-import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.Eternal_Flame_Block;
+import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.EternalFlameBlock;
+import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SaltBlock;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -36,9 +37,11 @@ public class ModBlocks {
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK).sound(SoundType.HONEY_BLOCK).destroyTime(200)));
     public static final RegistryObject<Block> FLESH_SPONGE_BLOCK = registerBlock("flesh_sponge_block",
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK).sound(SoundType.HONEY_BLOCK).destroyTime(200)));
+    public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block",
+            ()-> new SaltBlock(BlockBehaviour.Properties.copy(Blocks.SAND).instabreak()));
 
     public static final RegistryObject<Block> ETERNAL_FLAME_BLOCK = registerBlock("eternal_flame_block",
-            ()-> new Eternal_Flame_Block(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(-1).pushReaction(PushReaction.DESTROY).noLootTable()
+            ()-> new EternalFlameBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(-1).pushReaction(PushReaction.DESTROY).noLootTable()
                     .lightLevel((p_152607_) -> {return 15;}).noCollission().noOcclusion()));
 
 

@@ -24,6 +24,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SPC939SPIKE);
         simpleItem(ModItems.TELEKILL);
         simpleItem(ModItems.TELEKILL_UPGRADE_TEMPLATE);
+        simpleItem(ModItems.SALT);
 
 
 

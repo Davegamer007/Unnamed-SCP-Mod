@@ -1,7 +1,7 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.item.custom;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.block.ModBlocks;
-import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.Eternal_Flame_Block;
+import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.EternalFlameBlock;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPFuelItem;
 import net.minecraft.core.BlockPos;
@@ -33,7 +33,7 @@ public class SCP310Item extends SCPFuelItem {
         BlockState pOutputBlock = ModBlocks.ETERNAL_FLAME_BLOCK.get().defaultBlockState();
 
         if (!CampfireBlock.canLight(pBlockState) && !CandleBlock.canLight(pBlockState) && !CandleCakeBlock.canLight(pBlockState)) {
-            if (Eternal_Flame_Block.canBePlacedAt(pBlockState,pLevel,pClickedFace)) {
+            if (EternalFlameBlock.canBePlacedAt(pBlockState,pLevel,pClickedFace)) {
                 pLevel.playSound(pPlayer, pClickedFace, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, pLevel.getRandom().nextFloat() * 0.4F + 0.8F);
                 pLevel.setBlock(pClickedFace, pOutputBlock, 11);
                 pLevel.gameEvent(pPlayer, GameEvent.BLOCK_PLACE, pBlockPos);

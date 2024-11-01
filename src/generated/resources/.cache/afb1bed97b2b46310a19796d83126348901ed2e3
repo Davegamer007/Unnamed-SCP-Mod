@@ -1,4 +1,4 @@
-// 1.20.1	2024-10-22T15:24:36.436575	Item Models: unnamedscpmod
+// 1.20.1	2024-11-01T15:11:43.952541753	Item Models: unnamedscpmod
 1e08483ce7d3251cc95696d1d3ba9897669b8eb9 assets/unnamedscpmod/models/item/bottle_of_coal.json
 32eff7afc68c1cc41428771429adf328a3f1e747 assets/unnamedscpmod/models/item/bottle_of_copper.json
 ebfda81dc940b9c727224482e8d6838807dd3ca9 assets/unnamedscpmod/models/item/bottle_of_diamonds.json
@@ -12,6 +12,7 @@ d822299c99bd8faf92d18a83eeb4171c39db3526 assets/unnamedscpmod/models/item/bottle
 8115563a0d9e8f168e1a89b5bbc2254750950580 assets/unnamedscpmod/models/item/bottle_of_telekill.json
 d8cc3b98d16fde79fd6c9e9401903eb47ba6b9cb assets/unnamedscpmod/models/item/class-a_amnestic.json
 252e83958fe54d3a5408ed0e70fc85cae86205c7 assets/unnamedscpmod/models/item/raw_telekill.json
+1c212f14c5906d82f535c3776280a4de23b319d8 assets/unnamedscpmod/models/item/salt.json
 830443e5f1ff2a6788fa6661a56ece7adf40597a assets/unnamedscpmod/models/item/scp-310_eternal_flame.json
 d92f76e51172f034a4122579071624fdc5140da5 assets/unnamedscpmod/models/item/scp3000_y9o9.json
 7dd401c6a03be240e80b67d44950a3963757e8d4 assets/unnamedscpmod/models/item/scp939_spike.json

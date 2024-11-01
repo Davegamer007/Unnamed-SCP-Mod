@@ -24,6 +24,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.FLOOR_TILES);
         blockWithItem(ModBlocks.FLESH_BLOCK);
         blockWithItem(ModBlocks.FLESH_SPONGE_BLOCK);
+        blockWithItem(ModBlocks.SALT_BLOCK);
 
         simpleBlock(ModBlocks.ETERNAL_FLAME_BLOCK.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/eternal_flame_block")));

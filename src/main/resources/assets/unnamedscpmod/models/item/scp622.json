@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "unnamedscpmod:item/scp622_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "unnamedscpmod:item/scp622_2d"
+    },
+    "ground": {
+      "parent": "unnamedscpmod:item/scp622_3d"
+    },
+    "fixed": {
+      "parent": "unnamedscpmod:item/scp622_2d"
+    }
+  }
+}
