@@ -4,9 +4,11 @@ import com.mojang.logging.LogUtils;
 import net.davegamer007vinicius1232426.unnamedscpmod.block.ModBlocks;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
 import net.davegamer007vinicius1232426.unnamedscpmod.entity.ModEntities;
+import net.davegamer007vinicius1232426.unnamedscpmod.events.ModEvents;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModCreativeTabs;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
 import net.davegamer007vinicius1232426.unnamedscpmod.particle.ModParticles;
+import net.davegamer007vinicius1232426.unnamedscpmod.util.BottleToMetal;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -14,7 +16,10 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.CreativeModeTabRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -45,13 +50,12 @@ public class UnnamedSCPMod
         ModCreativeTabs.register(modEventBus);
         ModParticles.register(modEventBus);
 
-
         modEventBus.addListener(this::commonSetup);
-
-        MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -60,6 +64,21 @@ public class UnnamedSCPMod
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.BOTTLE_OF_COAL);
+            event.accept(ModItems.BOTTLE_OF_COPPER);
+            event.accept(ModItems.BOTTLE_OF_DIAMONDS);
+            event.accept(ModItems.BOTTLE_OF_GOLD);
+            event.accept(ModItems.BOTTLE_OF_IRON);
+            event.accept(ModItems.BOTTLE_OF_LAPISLAZULI);
+            event.accept(ModItems.BOTTLE_OF_QUARTZ);
+            event.accept(ModItems.BOTTLE_OF_EMERALDS);
+            event.accept(ModItems.BOTTLE_OF_NETHERITE);
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS){
+            event.accept(ModItems.BOTTLE_OF_GORE);
+        }
 
     }
 

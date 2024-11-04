@@ -41,21 +41,21 @@ public class SCP622 extends SCPItem {
         if (SCP622Map(pClickedState) != null && SCP622Map(pClickedState) != Blocks.AIR.defaultBlockState() && !pPlayer.isShiftKeyDown()){
             pLevel.setBlockAndUpdate(pClickedPos,SCP622Map(pClickedState));
             playEffects(pPlayer, pClickedPos.getX(), pClickedPos.getY(), pClickedPos.getZ());
-            pPlayer.getCooldowns().addCooldown(this,25);
+            pPlayer.getCooldowns().addCooldown(this,15);
             return InteractionResult.SUCCESS;
         }
 
         if (SCP622Map(pClickedState) == Blocks.AIR.defaultBlockState() && !pPlayer.isShiftKeyDown()){
             pLevel.destroyBlock(pClickedPos, true);
             playEffects(pPlayer, pClickedPos.getX(), pClickedPos.getY(), pClickedPos.getZ());
-            pPlayer.getCooldowns().addCooldown(this,25);
+            pPlayer.getCooldowns().addCooldown(this,15);
             return InteractionResult.SUCCESS;
         }
 
         if (pPlayer.isShiftKeyDown()){
             pLevel.setBlockAndUpdate(pClickedFace, ModBlocks.SALT_BLOCK.get().defaultBlockState());
             playEffects(pPlayer, pClickedFace.getX(), pClickedFace.getY(), pClickedFace.getZ());
-            pPlayer.getCooldowns().addCooldown(this,50);
+            pPlayer.getCooldowns().addCooldown(this,25);
             pLevel.scheduleTick(pClickedFace, ModBlocks.SALT_BLOCK.get(), 1);
         }
         return InteractionResult.FAIL;
@@ -97,12 +97,18 @@ public class SCP622 extends SCPItem {
         mapSCP622.put(Blocks.COARSE_DIRT.defaultBlockState(), Blocks.GRAVEL.defaultBlockState());
         mapSCP622.put(Blocks.GRAVEL.defaultBlockState(), Blocks.SAND.defaultBlockState());
 
+        mapSCP622.put(Blocks.BLUE_ICE.defaultBlockState(), Blocks.PACKED_ICE.defaultBlockState());
+        mapSCP622.put(Blocks.PACKED_ICE.defaultBlockState(), Blocks.ICE.defaultBlockState());
+
         mapSCP622.put(Blocks.MUD.defaultBlockState(), Blocks.CLAY.defaultBlockState());
         mapSCP622.put(Blocks.CLAY.defaultBlockState(), Blocks.TERRACOTTA.defaultBlockState());
         mapSCP622.put(Blocks.TERRACOTTA.defaultBlockState(), Blocks.RED_SAND.defaultBlockState());
 
         mapSCP622.put(ModBlocks.FLESH_BLOCK.get().defaultBlockState(), Blocks.AIR.defaultBlockState());
         mapSCP622.put(ModBlocks.FLESH_SPONGE_BLOCK.get().defaultBlockState(), Blocks.AIR.defaultBlockState());
+        mapSCP622.put(Blocks.SNOW.defaultBlockState(), Blocks.AIR.defaultBlockState());
+        mapSCP622.put(Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.AIR.defaultBlockState());
+        mapSCP622.put(Blocks.ICE.defaultBlockState(), Blocks.AIR.defaultBlockState());
 
         return mapSCP622.get(pInput);
     }
