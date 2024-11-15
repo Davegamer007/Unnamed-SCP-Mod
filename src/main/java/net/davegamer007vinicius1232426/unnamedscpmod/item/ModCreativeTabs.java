@@ -28,6 +28,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SPC939SPIKE.get());
                         output.accept(ModItems.BOTTLE_OF_Y9O9.get());
                         output.accept(ModItems.SALT.get());
+                        output.accept(ModItems.SCP458.get());
+                        output.accept(ModItems.SCP268.get());
 
 
 

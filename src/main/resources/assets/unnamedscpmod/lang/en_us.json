@@ -8,6 +8,8 @@
   "item.unnamedscpmod.scp999_gello": "Gello",
   "item.unnamedscpmod.scp622": "SCP 622-Desert in a Can",
   "item.unnamedscpmod.salt": "Salt",
+  "item.unnamedscpmod.scp458": "SCP 458-Infinite Pizza",
+  "item.unnamedscpmod.scp268": "SCP 268-Cap of Neglect",
 
 
   "block.unnamedscpmod.telekill_block": "Block of Telekill",
@@ -25,6 +27,7 @@
   "creativetab.scp_items_tab": "SCP Items",
 
   "effect.unnamedscpmod.eternal_flame": "Eternal Flame",
+  "effect.unnamedscpmod.incognito_effect": "Incognito",
 
 
 

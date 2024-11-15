@@ -1,0 +1,68 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+  "overrides": [
+    {
+        "predicate": {
+          "unnamedscpmod:number_of_slices": 0
+        },
+        "model":"unnamedscpmod:item/scp458_0"
+      },
+    {
+      "predicate": {
+        "unnamedscpmod:number_of_slices": 0.1
+      },
+
+    "model":"unnamedscpmod:item/scp458_1"
+    },
+    {
+      "predicate": {
+        "unnamedscpmod:number_of_slices": 0.2
+      },
+    "model": "unnamedscpmod:item/scp458_2"
+    },
+    {
+      "predicate": {
+        "unnamedscpmod:number_of_slices": 0.3
+      },
+    "model": "unnamedscpmod:item/scp458_3"
+    },
+      {
+        "predicate": {
+          "unnamedscpmod:number_of_slices": 0.4
+        },
+        "model": "unnamedscpmod:item/scp458_4"
+      },
+      {
+        "predicate": {
+          "unnamedscpmod:number_of_slices": 0.5
+        },
+        "model": "unnamedscpmod:item/scp458_5"
+      },
+        {
+          "predicate": {
+            "unnamedscpmod:number_of_slices": 0.6
+          },
+          "model": "unnamedscpmod:item/scp458_6"
+        },
+        {
+          "predicate": {
+            "unnamedscpmod:number_of_slices": 0.7
+          },
+          "model": "unnamedscpmod:item/scp458_7"
+        },
+        {
+          "predicate": {
+            "unnamedscpmod:number_of_slices": 0.8
+          },
+          "model": "unnamedscpmod:item/scp458_8"
+        }
+    ]
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "unnamedscpmod:item/scp458_0"
+    }
+  }
+}
