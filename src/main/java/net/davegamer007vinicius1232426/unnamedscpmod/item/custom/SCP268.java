@@ -32,7 +32,8 @@ public class SCP268 extends SCPItem implements Equipable {
     public static void incognitoHandler(LivingEntity pLivingEntity){
         if (pLivingEntity.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.SCP268.get())
                 && !pLivingEntity.hasEffect(ModEffects.INCOGNITO_EFFECT.get())){
-            pLivingEntity.addEffect(new MobEffectInstance(ModEffects.INCOGNITO_EFFECT.get(), 60, 1, false, false, true));
+            pLivingEntity.addEffect(new MobEffectInstance(
+                    ModEffects.INCOGNITO_EFFECT.get(), 60, 1, false, false, true));
         }
     }
 

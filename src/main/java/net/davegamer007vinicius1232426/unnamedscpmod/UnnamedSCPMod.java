@@ -9,7 +9,6 @@ import net.davegamer007vinicius1232426.unnamedscpmod.item.ModCreativeTabs;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
 import net.davegamer007vinicius1232426.unnamedscpmod.particle.ModParticles;
 import net.davegamer007vinicius1232426.unnamedscpmod.util.BottleToMetal;
-import net.davegamer007vinicius1232426.unnamedscpmod.util.ModItemProperties;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -95,7 +94,6 @@ public class UnnamedSCPMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.ETERNAL_FLAME_BLOCK.get(), RenderType.cutout());
-            ModItemProperties.setup(event);
         }
     }
 }
