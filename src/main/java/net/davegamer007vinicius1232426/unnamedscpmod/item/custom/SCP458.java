@@ -48,7 +48,7 @@ public class SCP458 extends SCPItem {
         super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
     }
 
-
+//
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack pPizza = pPlayer.getItemInHand(pUsedHand);
