@@ -2,107 +2,70 @@ package net.davegamer007vinicius1232426.unnamedscpmod.item.custom;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.block.ModBlocks;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPItem;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import org.checkerframework.checker.units.qual.C;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Optional;
 
 public class SCP458 extends SCPItem {
 
     public SCP458(Properties pProperties) {
         super(pProperties);
     }
-    public int MAX_SLICES = 8;
-    public int MAX_EAT_TIME = 30;
+    private final String EAT_TAG = "unnamedscpmod:eat_time";
+    private final String PLACE_TAG = "unnamedscpmod:should_place";
+    private final String SLICE_TAG = "unnamedscpmod:number_of_slices";
+    private final int MAX_EAT_TIME = 30;
+    private final int MAX_SLICES = 8;
 
 
-
-    @Override
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        CompoundTag nbtData = new CompoundTag();
-        if (!pStack.hasTag()){
-            nbtData.putInt("unnamedscpmod:number_of_slices", MAX_SLICES);
-            nbtData.putInt("unnamedscpmod:eat_time", MAX_EAT_TIME);
-            nbtData.putBoolean("unnamedscpmod:should_place", false);
-        }
-        pStack.setTag(nbtData);
-        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
-    }
-
-//
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack pPizza = pPlayer.getItemInHand(pUsedHand);
-        CompoundTag nbtData = pPizza.getTag();
-        int pSlices = pPizza.getTag().getInt("unnamedscpmod:number_of_slices");
+        CompoundTag nbtData = pPizza.getOrCreateTag();
+        int pSlices = nbtData.getInt(SLICE_TAG);
 
-        if (!pPlayer.isShiftKeyDown() && pPlayer.getFoodData().needsFood()||pPlayer.isCreative()){
-            nbtData.putInt("unnamedscpmod:eat_time", MAX_EAT_TIME);
-            nbtData.putBoolean("unnamedscpmod:should_place", false);
+        if (!pPlayer.isShiftKeyDown() && pPlayer.getFoodData().needsFood()||pPlayer.isCreative() && pSlices !=0){
+            nbtData.putInt(EAT_TAG, MAX_EAT_TIME);
             pPlayer.startUsingItem(pUsedHand);
         }
 
-        if (pPlayer.isShiftKeyDown() && !pPlayer.isUsingItem()){
-            nbtData.putBoolean("unnamedscpmod:should_place", true);
-        }
-
         if (!pPlayer.isShiftKeyDown() && pSlices == 0){
-            nbtData.putInt("unnamedscpmod:number_of_slices", MAX_SLICES);
-            nbtData.putInt("unnamedscpmod:eat_time", MAX_EAT_TIME);
+            nbtData.putInt(SLICE_TAG, MAX_SLICES);
         }
 
         return super.use(pLevel, pPlayer, pUsedHand);
     }
-
-
-
-
-
-
-
 
     @Override
     public void onUseTick(Level pLevel, LivingEntity pLivingEntity, ItemStack pStack, int pRemainingUseDuration) {
         if (!(pLivingEntity instanceof Player pPlayer)){return;}
         InteractionHand pUsedHand = pPlayer.getUsedItemHand();
         ItemStack pPizza = pPlayer.getItemInHand(pUsedHand);
-        CompoundTag nbtData = pPizza.getTag();
+        CompoundTag nbtData = pPizza.getOrCreateTag();
+        boolean pPlace = nbtData.getBoolean(PLACE_TAG);
 
+        int pEatTime = nbtData.getInt(EAT_TAG);
+        int pSlices = nbtData.getInt(SLICE_TAG);
 
-        int pEatTime = pPizza.getTag().getInt("unnamedscpmod:eat_time");
-        int pSlices = pPizza.getTag().getInt("unnamedscpmod:number_of_slices");
-
-        if (pPlayer.isShiftKeyDown()){
-            return;
-        }
-
-        if (pSlices >= 1 && pEatTime >= 1){
-            nbtData.putInt("unnamedscpmod:eat_time", (int)(pEatTime-1));
+        if (pSlices >= 1 && pEatTime >= -1){
+            nbtData.putInt(EAT_TAG, pEatTime-1);
         }
 
         if (pSlices >= 1 && pEatTime == 0 && pPlayer.getFoodData().needsFood()){
-            pPlayer.getFoodData().eat(4,4);
-            nbtData.putInt("unnamedscpmod:number_of_slices", (int)(pSlices-1));
-            nbtData.putInt("unnamedscpmod:eat_time", MAX_EAT_TIME);
             pPlayer.stopUsingItem();
         }
 
@@ -114,15 +77,35 @@ public class SCP458 extends SCPItem {
             pPlayer.getCooldowns().addCooldown(this, 20);
         }
 
+        if (pPlace){
+            pPlayer.stopUsingItem();
+        }
         super.onUseTick(pLevel, pLivingEntity, pStack, pRemainingUseDuration);
     }
 
+    @Override
+    public void onStopUsing(ItemStack stack, LivingEntity entity, int count) {
+        CompoundTag nbtdata = stack.getOrCreateTag();
+        boolean pPlace = nbtdata.getBoolean(PLACE_TAG);
+        int pSlices = nbtdata.getInt(SLICE_TAG);
+        int pEatTime = nbtdata.getInt(EAT_TAG);
+        if (entity instanceof Player pPlayer && !pPlace && pSlices != 0){
+            pPlayer.getFoodData().eat(4,4);
+            nbtdata.putInt(SLICE_TAG, pSlices-1);
+            pPlayer.getCooldowns().addCooldown(stack.getItem(), 10 + pEatTime);
+        }
+        super.onStopUsing(stack, entity, count);
+    }
 
-
-
-
-
-
+    @Override
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        CompoundTag nbtData = pStack.getOrCreateTag();
+        if (!(pEntity instanceof Player pPlayer)){
+            return;
+        }
+        nbtData.putBoolean(PLACE_TAG, pPlayer.isShiftKeyDown());
+        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
+    }
 
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
@@ -133,7 +116,7 @@ public class SCP458 extends SCPItem {
 
 
         ItemStack pStack = pContext.getItemInHand();
-        boolean pPlace = pStack.getTag().getBoolean("unnamedscpmod:should_place");
+        boolean pPlace = pStack.getOrCreateTag().getBoolean(PLACE_TAG);
 
         if (!pPlace){
             return super.useOn(pContext);
@@ -150,41 +133,30 @@ public class SCP458 extends SCPItem {
         return super.useOn(pContext);
     }
 
-
-
-
-
-
     @Override
     public UseAnim getUseAnimation(ItemStack pStack) {
-        boolean pPlace = pStack.getTag().getBoolean("unnamedscpmod:should_place");
+        CompoundTag nbtData = pStack.getOrCreateTag();
+        boolean pPlace = nbtData.getBoolean(PLACE_TAG);
         if (pPlace){
             return UseAnim.BLOCK;
         }
         return UseAnim.EAT;
     }
 
-
-
-
-
     @Override
     public int getUseDuration(ItemStack pStack) {
-        boolean pPlace = pStack.getTag().getBoolean("unnamedscpmod:should_place");
+        CompoundTag nbtData = pStack.getOrCreateTag();
+        boolean pPlace = nbtData.getBoolean(PLACE_TAG);
         if (!pPlace){
-            return 20;
+            return MAX_EAT_TIME+10;
         }
          return 0;
     }
 
-
-
-
-
-
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        int pSLICES = pStack.getTag().getInt("unnamedscpmod:number_of_slices");
+        CompoundTag nbtData = pStack.getOrCreateTag();
+        int pSLICES = nbtData.getInt(SLICE_TAG);
 
         if (pSLICES > 1) {
             pTooltipComponents.add(Component.literal("There are " + pSLICES + " slices left in the box"));
