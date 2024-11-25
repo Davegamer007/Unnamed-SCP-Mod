@@ -6,6 +6,7 @@ import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModCreativeTabs;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
 import net.davegamer007vinicius1232426.unnamedscpmod.particle.ModParticles;
+import net.davegamer007vinicius1232426.unnamedscpmod.util.ModItemProperties;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -86,17 +87,8 @@ public class UnnamedSCPMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.ETERNAL_FLAME_BLOCK.get(), RenderType.cutout());
-        }
+            ModItemProperties.setup(event);
 
-        @SubscribeEvent
-        private void setup(final FMLClientSetupEvent event){
-            event.enqueueWork(() ->
-            {
-                ItemProperties.register(ModItems.SCP458.get(),
-                        new ResourceLocation(UnnamedSCPMod.MOD_ID, "unnamedscpmod:number_of_slices"), (stack, level, living, id) -> {
-                    return living != null && living.isUsingItem() && living.getUseItem() == stack ? 1.0F : 0.0F;
-                        });
-            });
         }
     }
 }

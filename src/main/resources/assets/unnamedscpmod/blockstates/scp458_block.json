@@ -1,0 +1,66 @@
+{
+  "variants":{
+    "facing=down,number_of_slices=0" : {"model": "unnamedscpmod:block/scp458_0", "x": 180, "y":90},
+    "facing=east,number_of_slices=0": {"model": "unnamedscpmod:block/scp458_0", "y": 90},
+    "facing=west,number_of_slices=0" : {"model": "unnamedscpmod:block/scp458_0", "y": 270},
+    "facing=north,number_of_slices=0": {"model": "unnamedscpmod:block/scp458_0"},
+    "facing=south,number_of_slices=0": {"model": "unnamedscpmod:block/scp458_0", "y": 180},
+    "facing=up,number_of_slices=0": {"model": "unnamedscpmod:block/scp458_0"},
+
+    "facing=down,number_of_slices=1" : {"model": "unnamedscpmod:block/scp458_1", "x": 180, "y":90},
+    "facing=east,number_of_slices=1": {"model": "unnamedscpmod:block/scp458_1", "y": 90},
+    "facing=west,number_of_slices=1" : {"model": "unnamedscpmod:block/scp458_1", "y": 270},
+    "facing=north,number_of_slices=1": {"model": "unnamedscpmod:block/scp458_1"},
+    "facing=south,number_of_slices=1": {"model": "unnamedscpmod:block/scp458_1", "y": 180},
+    "facing=up,number_of_slices=1": {"model": "unnamedscpmod:block/scp458_1"},
+
+    "facing=down,number_of_slices=2" : {"model": "unnamedscpmod:block/scp458_2", "x": 180, "y":90},
+    "facing=east,number_of_slices=2": {"model": "unnamedscpmod:block/scp458_2", "y": 90},
+    "facing=west,number_of_slices=2" : {"model": "unnamedscpmod:block/scp458_2", "y": 270},
+    "facing=north,number_of_slices=2": {"model": "unnamedscpmod:block/scp458_2"},
+    "facing=south,number_of_slices=2": {"model": "unnamedscpmod:block/scp458_2", "y": 180},
+    "facing=up,number_of_slices=2": {"model": "unnamedscpmod:block/scp458_2"},
+
+    "facing=down,number_of_slices=3" : {"model": "unnamedscpmod:block/scp458_3", "x": 180, "y":90},
+    "facing=east,number_of_slices=3": {"model": "unnamedscpmod:block/scp458_3", "y": 90},
+    "facing=west,number_of_slices=3" : {"model": "unnamedscpmod:block/scp458_3", "y": 270},
+    "facing=north,number_of_slices=3": {"model": "unnamedscpmod:block/scp458_3"},
+    "facing=south,number_of_slices=3": {"model": "unnamedscpmod:block/scp458_3", "y": 180},
+    "facing=up,number_of_slices=3": {"model": "unnamedscpmod:block/scp458_3"},
+
+    "facing=down,number_of_slices=4" : {"model": "unnamedscpmod:block/scp458_4", "x": 180, "y":90},
+    "facing=east,number_of_slices=4": {"model": "unnamedscpmod:block/scp458_4", "y": 90},
+    "facing=west,number_of_slices=4" : {"model": "unnamedscpmod:block/scp458_4", "y": 270},
+    "facing=north,number_of_slices=4": {"model": "unnamedscpmod:block/scp458_4"},
+    "facing=south,number_of_slices=4": {"model": "unnamedscpmod:block/scp458_4", "y": 180},
+    "facing=up,number_of_slices=4": {"model": "unnamedscpmod:block/scp458_4"},
+
+    "facing=down,number_of_slices=5" : {"model": "unnamedscpmod:block/scp458_5", "x": 180, "y":90},
+    "facing=east,number_of_slices=5": {"model": "unnamedscpmod:block/scp458_5", "y": 90},
+    "facing=west,number_of_slices=5" : {"model": "unnamedscpmod:block/scp458_5", "y": 270},
+    "facing=north,number_of_slices=5": {"model": "unnamedscpmod:block/scp458_5"},
+    "facing=south,number_of_slices=5": {"model": "unnamedscpmod:block/scp458_5", "y": 180},
+    "facing=up,number_of_slices=5": {"model": "unnamedscpmod:block/scp458_5"},
+
+    "facing=down,number_of_slices=6" : {"model": "unnamedscpmod:block/scp458_6", "x": 180, "y":90},
+    "facing=east,number_of_slices=6": {"model": "unnamedscpmod:block/scp458_6", "y": 90},
+    "facing=west,number_of_slices=6" : {"model": "unnamedscpmod:block/scp458_6", "y": 270},
+    "facing=north,number_of_slices=6": {"model": "unnamedscpmod:block/scp458_6"},
+    "facing=south,number_of_slices=6": {"model": "unnamedscpmod:block/scp458_6", "y": 180},
+    "facing=up,number_of_slices=6": {"model": "unnamedscpmod:block/scp458_6"},
+
+    "facing=down,number_of_slices=7" : {"model": "unnamedscpmod:block/scp458_7", "x": 180, "y":90},
+    "facing=east,number_of_slices=7": {"model": "unnamedscpmod:block/scp458_7", "y": 90},
+    "facing=west,number_of_slices=7" : {"model": "unnamedscpmod:block/scp458_7", "y": 270},
+    "facing=north,number_of_slices=7": {"model": "unnamedscpmod:block/scp458_7"},
+    "facing=south,number_of_slices=7": {"model": "unnamedscpmod:block/scp458_7", "y": 180},
+    "facing=up,number_of_slices=7": {"model": "unnamedscpmod:block/scp458_7"},
+
+    "facing=down,number_of_slices=8" : {"model": "unnamedscpmod:block/scp458_8", "x": 180, "y":90},
+    "facing=east,number_of_slices=8": {"model": "unnamedscpmod:block/scp458_8", "y": 90},
+    "facing=west,number_of_slices=8" : {"model": "unnamedscpmod:block/scp458_8", "y": 270},
+    "facing=north,number_of_slices=8": {"model": "unnamedscpmod:block/scp458_8"},
+    "facing=south,number_of_slices=8": {"model": "unnamedscpmod:block/scp458_8", "y": 180},
+    "facing=up,number_of_slices=8": {"model": "unnamedscpmod:block/scp458_8"}
+  }
+}

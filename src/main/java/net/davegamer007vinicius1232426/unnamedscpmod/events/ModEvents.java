@@ -1,6 +1,7 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.events;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPItem;
 import net.davegamer007vinicius1232426.unnamedscpmod.util.BottleToMetal;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;

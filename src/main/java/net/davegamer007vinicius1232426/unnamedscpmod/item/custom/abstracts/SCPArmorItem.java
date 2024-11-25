@@ -1,6 +1,7 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -27,12 +28,18 @@ public class SCPArmorItem extends ArmorItem {
     @Override
     public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
         Double entityY = entity.getY();
-        float YSpeed = (entity.fallDistance + 5)/50f;
-        entity.isInvulnerable();
-        entity.setUnlimitedLifetime();
-        if (entityY <= -64){
-            entity.setDeltaMovement(0,YSpeed,0);
+        float YSpeed = (entity.fallDistance + 5) / 50f;
+        if (entityY <= -64) {
+            entity.setDeltaMovement(0, YSpeed, 0);
+        }
+        if(entity.lifespan < 10){
+            entity.lifespan = 200;
         }
         return super.onEntityItemUpdate(stack, entity);
+    }
+
+    @Override
+    public boolean canBeHurtBy(DamageSource pDamageSource) {
+        return false;
     }
 }

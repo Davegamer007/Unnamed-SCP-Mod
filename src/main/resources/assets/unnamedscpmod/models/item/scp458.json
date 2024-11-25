@@ -1,41 +1,23 @@
 {
   "parent": "minecraft:item/handheld",
-  "loader": "forge:separate_transforms",
-  "base": {
+  "base": {"model": "unnamedscpmod/scp458_0"},
   "overrides": [
-    {
-      "predicate": {"unnamedscpmod:number_of_slices": 0},
-      "model":"unnamedscpmod:item/scp458_0"},
-    {
-      "predicate": {"unnamedscpmod:number_of_slices": 1},
-      "model":"unnamedscpmod:item/scp458_1"},
-    {
-      "predicate": {"unnamedscpmod:number_of_slices": 2},
-    "model": "unnamedscpmod:item/scp458_2"},
-    {
-      "predicate": {"unnamedscpmod:number_of_slices": 3},
-      "model": "unnamedscpmod:item/scp458_3"},
-    {
-      "predicate": {"unnamedscpmod:number_of_slices": 4},
-      "model": "unnamedscpmod:item/scp458_4"},
-    {
-      "predicate": {"unnamedscpmod:number_of_slices": 5},
-      "model": "unnamedscpmod:item/scp458_5"},
-    {
-      "predicate": {"unnamedscpmod:number_of_slices": 6},
-      "model": "unnamedscpmod:item/scp458_6"},
-    {
-      "predicate": {"unnamedscpmod:number_of_slices": 7},
-      "model": "unnamedscpmod:item/scp458_7"},
-    {
-      "predicate": {"unnamedscpmod:number_of_slices": 8},
-      "model": "unnamedscpmod:item/scp458_8"
-    }
+    {"predicate": {"unnamedscpmod:number_of_slices": 0}, "model":"unnamedscpmod:item/scp458_0"},
+
+    {"predicate": {"unnamedscpmod:number_of_slices": 1}, "model":"unnamedscpmod:item/scp458_1"},
+
+    {"predicate": {"unnamedscpmod:number_of_slices": 2}, "model": "unnamedscpmod:item/scp458_2"},
+
+    {"predicate": {"unnamedscpmod:number_of_slices": 3}, "model": "unnamedscpmod:item/scp458_3"},
+
+    {"predicate": {"unnamedscpmod:number_of_slices": 4}, "model": "unnamedscpmod:item/scp458_4"},
+
+    {"predicate": {"unnamedscpmod:number_of_slices": 5}, "model": "unnamedscpmod:item/scp458_5"},
+
+    {"predicate": {"unnamedscpmod:number_of_slices": 6}, "model": "unnamedscpmod:item/scp458_6"},
+
+    {"predicate": {"unnamedscpmod:number_of_slices": 7}, "model": "unnamedscpmod:item/scp458_7"},
+
+    {"predicate": {"unnamedscpmod:number_of_slices": 8}, "model": "unnamedscpmod:item/scp458_8"}
   ]
-  },
-  "perspectives": {
-    "gui": {
-      "parent": "unnamedscpmod:item/scp458_0"
-    }
-  }
 }

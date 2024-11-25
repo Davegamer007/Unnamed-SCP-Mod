@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 
 public class SaltBlock extends FallingBlock {
     public static final int MAX_DEPTH = 6;
@@ -52,7 +53,7 @@ public class SaltBlock extends FallingBlock {
                 return true;
             } else {
                 BlockState blockstate = pLevel.getBlockState(p_279054_);
-                if (blockstate.getBlock() instanceof LiquidBlock) {
+                if (blockstate.getBlock() instanceof LiquidBlock pLiquid && pLiquid.getFluid() == Fluids.WATER) {
                     pLevel.setBlock(p_279054_, Blocks.AIR.defaultBlockState(), 3);
                 }
                 else {

@@ -16,6 +16,8 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -25,9 +27,9 @@ public class SCP458 extends SCPItem {
     public SCP458(Properties pProperties) {
         super(pProperties);
     }
-    private final String EAT_TAG = "unnamedscpmod:eat_time";
-    private final String PLACE_TAG = "unnamedscpmod:should_place";
-    private final String SLICE_TAG = "unnamedscpmod:number_of_slices";
+    private final String EAT_TAG = "eat_time";
+    private final String PLACE_TAG = "should_place";
+    private final String SLICE_TAG = "number_of_slices";
     private final int MAX_EAT_TIME = 30;
     private final int MAX_SLICES = 8;
 
@@ -113,22 +115,30 @@ public class SCP458 extends SCPItem {
         Level pLevel = pContext.getLevel();
         BlockPos pBlockPos = pContext.getClickedPos();
         BlockPos pFacePos = pBlockPos.relative(pContext.getClickedFace());
-
-
         ItemStack pStack = pContext.getItemInHand();
+        CompoundTag nbtData = pStack.getOrCreateTag();
+        int pSlices = nbtData.getInt(SLICE_TAG);
+        BlockState pState = ModBlocks.SCP458_BLOCK.get().defaultBlockState();
+        BlockState pPizza =  (BlockState) pState.setValue(net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SCP458.SLICES, pSlices)
+                .setValue(net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SCP458.FACING,pContext.getClickedFace());
+
         boolean pPlace = pStack.getOrCreateTag().getBoolean(PLACE_TAG);
 
         if (!pPlace){
             return super.useOn(pContext);
         }
 
+        if (!(pLevel.getBlockState(pFacePos).isAir())){
+            return InteractionResult.FAIL;
+        }
+
         if (!pPlayer.isCreative()){
-            pLevel.setBlock(pFacePos, ModBlocks.FLESH_BLOCK.get().defaultBlockState(), 1);
+            pLevel.setBlock(pFacePos, pPizza, 1);
             pStack.setCount(pStack.getCount()-1);
         }
 
         if (pPlayer.isCreative()){
-            pLevel.setBlock(pFacePos, ModBlocks.FLESH_BLOCK.get().defaultBlockState(), 1);
+            pLevel.setBlock(pFacePos, pPizza, 1);
         }
         return super.useOn(pContext);
     }

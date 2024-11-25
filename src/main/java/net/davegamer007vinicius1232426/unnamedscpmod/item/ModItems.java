@@ -6,6 +6,7 @@ import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP310Item;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP458;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP622;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.ModArmorMaterials;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.easterEggs.ThalassoRex;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -79,6 +80,11 @@ public class ModItems {
             ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BOTTLE_OF_GORE = ITEMS.register("bottle_of_gore",
             ()-> new Item(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> THALASSOREX = ITEMS.register("thalassorex",
+            ()-> new ThalassoRex(new Item.Properties().stacksTo(1)
+                    .defaultDurability(-1).rarity(Rarity.EPIC)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
