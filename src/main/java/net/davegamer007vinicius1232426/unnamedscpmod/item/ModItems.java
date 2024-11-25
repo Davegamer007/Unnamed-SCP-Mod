@@ -1,8 +1,14 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.item;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP268;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP310Item;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP458;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP622;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.ModArmorMaterials;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.easterEggs.ThalassoRex;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
@@ -25,6 +31,10 @@ public class ModItems {
             ()-> new SCP310Item(new Item.Properties().fireResistant().rarity(Rarity.EPIC).stacksTo(1)));
     public static final RegistryObject<Item> SCP622 = ITEMS.register("scp622",
             ()-> new SCP622(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> SCP458 = ITEMS.register("scp458",
+            ()-> new SCP458(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> SCP268 = ITEMS.register("scp268",
+            ()-> new SCP268(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
 
     public static final RegistryObject<Item> CLASS_A_AMNESTIC = ITEMS.register("class-a_amnestic",
@@ -70,6 +80,11 @@ public class ModItems {
             ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BOTTLE_OF_GORE = ITEMS.register("bottle_of_gore",
             ()-> new Item(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> THALASSOREX = ITEMS.register("thalassorex",
+            ()-> new ThalassoRex(new Item.Properties().stacksTo(1)
+                    .defaultDurability(-1).rarity(Rarity.EPIC)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

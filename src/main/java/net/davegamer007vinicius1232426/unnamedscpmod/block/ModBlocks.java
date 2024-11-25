@@ -2,6 +2,7 @@ package net.davegamer007vinicius1232426.unnamedscpmod.block;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
 import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.EternalFlameBlock;
+import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SCP458;
 import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SaltBlock;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -39,6 +40,8 @@ public class ModBlocks {
             ()-> new Block(BlockBehaviour.Properties.copy(Blocks.HONEY_BLOCK).sound(SoundType.HONEY_BLOCK).destroyTime(200)));
     public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block",
             ()-> new SaltBlock(BlockBehaviour.Properties.copy(Blocks.SAND).instabreak()));
+    public static final RegistryObject<Block> SCP458_BLOCK = registerBlock("scp458_block",
+            ()-> new SCP458(BlockBehaviour.Properties.copy(Blocks.CAKE).instabreak()));
 
     public static final RegistryObject<Block> ETERNAL_FLAME_BLOCK = registerBlock("eternal_flame_block",
             ()-> new EternalFlameBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(-1).pushReaction(PushReaction.DESTROY).noLootTable()

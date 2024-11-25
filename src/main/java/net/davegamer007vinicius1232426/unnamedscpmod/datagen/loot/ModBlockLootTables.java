@@ -33,6 +33,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.add(ModBlocks.SALT_BLOCK.get(),
                 block -> createMushroomBlockDrop(ModBlocks.SALT_BLOCK.get(), ModItems.SALT.get()));
+
+        this.add(ModBlocks.SCP458_BLOCK.get(),
+                block -> createSingleItemTable(ModItems.SCP458.get()));
     }
 
 

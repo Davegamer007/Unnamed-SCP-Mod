@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:item/handheld",
+  "base": {"model": "unnamedscpmod/scp458_0"},
+  "overrides": [
+    {"predicate": {"unnamedscpmod:use_mode": 0}, "parent":"unnamedscpmod:item/thalassorex/thalassorex_0"},
+
+    {"predicate": {"unnamedscpmod:use_mode": 1}, "parent":"unnamedscpmod:item/thalassorex/thalassorex_1"},
+
+    {"predicate": {"unnamedscpmod:use_mode": 2}, "parent": "unnamedscpmod:item/thalassorex/thalassorex_2"}
+  ]
+}

@@ -38,6 +38,28 @@ public class SCP622 extends SCPItem {
         FluidState pFluid = pLevel.getFluidState(pClickedFace);
         Player pPlayer = pContext.getPlayer();
 
+
+        if (pPlayer.isCreative()){
+            if (SCP622Map(pClickedState) != null && SCP622Map(pClickedState) != Blocks.AIR.defaultBlockState() && !pPlayer.isShiftKeyDown()){
+                pLevel.setBlockAndUpdate(pClickedPos,SCP622Map(pClickedState));
+                playEffects(pPlayer, pClickedPos.getX(), pClickedPos.getY(), pClickedPos.getZ());
+                return InteractionResult.SUCCESS;
+            }
+
+            if (SCP622Map(pClickedState) == Blocks.AIR.defaultBlockState() && !pPlayer.isShiftKeyDown()){
+                pLevel.destroyBlock(pClickedPos, true);
+                playEffects(pPlayer, pClickedPos.getX(), pClickedPos.getY(), pClickedPos.getZ());
+                return InteractionResult.SUCCESS;
+            }
+
+            if (pPlayer.isShiftKeyDown()){
+                pLevel.setBlockAndUpdate(pClickedFace, ModBlocks.SALT_BLOCK.get().defaultBlockState());
+                playEffects(pPlayer, pClickedFace.getX(), pClickedFace.getY(), pClickedFace.getZ());
+                pLevel.scheduleTick(pClickedFace, ModBlocks.SALT_BLOCK.get(), 1);
+            }
+        }
+
+        if (!pPlayer.isCreative()){
         if (SCP622Map(pClickedState) != null && SCP622Map(pClickedState) != Blocks.AIR.defaultBlockState() && !pPlayer.isShiftKeyDown()){
             pLevel.setBlockAndUpdate(pClickedPos,SCP622Map(pClickedState));
             playEffects(pPlayer, pClickedPos.getX(), pClickedPos.getY(), pClickedPos.getZ());
@@ -58,6 +80,7 @@ public class SCP622 extends SCPItem {
             pPlayer.getCooldowns().addCooldown(this,25);
             pLevel.scheduleTick(pClickedFace, ModBlocks.SALT_BLOCK.get(), 1);
         }
+        }
         return InteractionResult.FAIL;
     }
 
@@ -71,14 +94,14 @@ public class SCP622 extends SCPItem {
             return InteractionResult.SUCCESS;
         }
 
-        if (pInteractionTarget instanceof Zombie pZombie && pInteractionTarget instanceof Drowned == false && pInteractionTarget instanceof Husk == false){
+        if (pInteractionTarget instanceof Zombie pZombie && !(pInteractionTarget instanceof Drowned) && !(pInteractionTarget instanceof Husk)){
             pZombie.convertTo(EntityType.HUSK, true);
             pPlayer.getCooldowns().addCooldown(this, 25);
             playEffects(pPlayer, pInteractionTarget.getX(), pInteractionTarget.getY() + 1, pInteractionTarget.getZ());
             return InteractionResult.SUCCESS;
         }
 
-        if (pInteractionTarget != null && pInteractionTarget instanceof Husk == false && !pPlayer.getCooldowns().isOnCooldown(this)){
+        if (pInteractionTarget != null && !(pInteractionTarget instanceof Husk) && !pPlayer.getCooldowns().isOnCooldown(this)){
             pInteractionTarget.hurt(pInteractionTarget.damageSources().dryOut(), 5);
             pInteractionTarget.setLastHurtByMob(pPlayer);
             playEffects(pPlayer,pInteractionTarget.getX(), pInteractionTarget.getY() + 1, pInteractionTarget.getZ());
