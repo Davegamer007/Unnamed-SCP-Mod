@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_17",
+  "package": "net.davegamer007vinicius1232426.unnamedscpmod.mixins",
+  "refmap": "unnamedscpmod.mixin-refmap.json",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "ItemEntityMixin",
+    "LivingChangeTargetMixin",
+    "PlayerMixin"
+  ],
+  "client": [
+    "HumanoidArmorLayerMixin",
+    "PlayerRendererMixin"
+  ]
+}

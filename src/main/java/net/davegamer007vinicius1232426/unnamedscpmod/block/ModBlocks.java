@@ -43,6 +43,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> SCP458_BLOCK = registerBlock("scp458_block",
             ()-> new SCP458(BlockBehaviour.Properties.copy(Blocks.CAKE).instabreak()));
 
+
+
     public static final RegistryObject<Block> ETERNAL_FLAME_BLOCK = registerBlock("eternal_flame_block",
             ()-> new EternalFlameBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(-1).pushReaction(PushReaction.DESTROY).noLootTable()
                     .lightLevel((p_152607_) -> {return 15;}).noCollission().noOcclusion()));

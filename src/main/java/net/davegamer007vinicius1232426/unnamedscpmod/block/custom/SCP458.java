@@ -43,20 +43,23 @@ public class SCP458 extends Block {
                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         int pSlices = pState.getValue(SLICES);
 
-        if (pLevel.isClientSide && pSlices == 0 && pHand == InteractionHand.MAIN_HAND){
-            pLevel.setBlock(pPos, (BlockState) pState.setValue(SLICES, MAX_SLICES).setValue(FACING, pState.getValue(FACING)), 3);
-            return InteractionResult.SUCCESS;}
+        if (!pLevel.isClientSide && pSlices == 0 && pHand == InteractionHand.MAIN_HAND){
+            pLevel.setBlockAndUpdate(pPos, (BlockState) pState.setValue(SLICES, MAX_SLICES).setValue(FACING, pState.getValue(FACING)));
+        }
 
-        else if (pLevel.isClientSide && pPlayer.getFoodData().needsFood()|| pPlayer.isCreative()
-                && pHand == InteractionHand.MAIN_HAND && pLevel.isClientSide && pSlices > 0){
-
+        else if (!pLevel.isClientSide && pPlayer.getFoodData().needsFood()|| pPlayer.isCreative() && pHand == InteractionHand.MAIN_HAND && pSlices > 0){
             pPlayer.getFoodData().eat(4,4);
-            pLevel.setBlock(pPos, (BlockState) pState.setValue(SLICES,pSlices-1).setValue(FACING, pState.getValue(FACING)), 3);
+            pLevel.setBlockAndUpdate(pPos, (BlockState) pState.setValue(SLICES,pSlices-1).setValue(FACING, pState.getValue(FACING)));
+        }
 
-
+        if (pLevel.isClientSide && pPlayer.getFoodData().needsFood()|| pPlayer.isCreative()
+                && pHand == InteractionHand.MAIN_HAND && pLevel.isClientSide && pSlices > 0){
             return InteractionResult.CONSUME;
         }
-        return InteractionResult.FAIL;
+        else if (pLevel.isClientSide && pSlices == 0 && pHand == InteractionHand.MAIN_HAND){
+            return InteractionResult.SUCCESS;
+        }
+        return super.use(pState,pLevel,pPos,pPlayer,pHand,pHit);
     }
 
     @Override
