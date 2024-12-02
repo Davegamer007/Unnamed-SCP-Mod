@@ -1,7 +1,8 @@
-// 1.20.1	2024-10-22T15:24:36.4405795	Recipes
+// 1.20.1	2024-12-01T16:16:27.783397027	Recipes
 d5508f0fa1219e7cd119723b32fa42bb44c68ea9 data/unnamedscpmod/advancements/recipes/misc/class-a_amnestic.json
 2064e63672600cd6b5343e46d7d808b002dc759e data/unnamedscpmod/advancements/recipes/misc/raw_telekill.json
 cf274c63c99182d38ebd68894ba06b48cc004326 data/unnamedscpmod/advancements/recipes/misc/raw_telekill_block.json
+f2c34a631e55ba5824222a52466481901d96b872 data/unnamedscpmod/advancements/recipes/misc/salt_block.json
 a90528f30a789a012a577e179f29aab8d7fa6857 data/unnamedscpmod/advancements/recipes/misc/telekill.json
 7cf5fe5f25e8f001cd968e1e112a0b09f3836402 data/unnamedscpmod/advancements/recipes/misc/telekill_block.json
 5a257205e2e62c1000f6cf2e729bfd9a82837f13 data/unnamedscpmod/advancements/recipes/misc/telekill_from_blasting_raw_telekill.json
@@ -11,6 +12,7 @@ f839bb273a001d3da87b324d9998bcd72ec496aa data/unnamedscpmod/advancements/recipes
 41fa347205c14bd9eee9fb8c835f5f3369d265ce data/unnamedscpmod/recipes/class-a_amnestic.json
 5f0bc975a6014b9dbfd1dbec2bd801e50217a3a8 data/unnamedscpmod/recipes/raw_telekill.json
 53a35e923e149f14bc638f666bd5b95856d6b3c0 data/unnamedscpmod/recipes/raw_telekill_block.json
+03771379e9598c05151abed82c0d90b36ede1dfa data/unnamedscpmod/recipes/salt_block.json
 601c1599ed57f12b85d222a94f0a4be6b73b3dd6 data/unnamedscpmod/recipes/telekill.json
 a39ad566702410e3b998ded3892ed4cb7fcc9e82 data/unnamedscpmod/recipes/telekill_block.json
 fa58ff621fc02776820bb8ab67bad1eda3f8aa4e data/unnamedscpmod/recipes/telekill_from_blasting_raw_telekill.json

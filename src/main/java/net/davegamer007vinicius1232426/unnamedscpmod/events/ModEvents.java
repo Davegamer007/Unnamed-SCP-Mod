@@ -9,6 +9,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.animal.SnowGolem;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -58,25 +59,31 @@ public class ModEvents{
     if (pTarget instanceof SnowGolem pSnowGolem && pReturn != null && pPlayer.isShiftKeyDown()){
         for (int i = pStack.getCount(); i > 0; i--){
             pStack.setCount(pStack.getCount()-1);
-            pSnowGolem.spawnAtLocation(pOutput);
+            pSnowGolem.spawnAtLocation(pReturn);
         }
-    }
-    }
-
-
-
-
-
+    }}
 
     @SubscribeEvent
-    public static void incognitoHandlerEvent(LivingEvent.LivingVisibilityEvent pEvent){
-        LivingEntity pAffected = pEvent.getEntity();
-        if (pAffected.hasEffect(ModEffects.INCOGNITO_EFFECT.get())){
-            pEvent.modifyVisibility(1-(1 +(pAffected.getHealth()/pAffected.getMaxHealth())));
+    public static void incognitoVisibilityHandler(LivingEvent.LivingVisibilityEvent pEvent){
+        if (pEvent.getEntity().hasEffect(ModEffects.INCOGNITO_EFFECT.get())){
+            pEvent.modifyVisibility(0.1);
         }
     }
-
     @SubscribeEvent
-    public static void incognitoPlayerHandlerEvent(RenderPlayerEvent pEvent){
+    public static void incognitoAgroHandlerEvent(LivingChangeTargetEvent pEvent){
+        LivingEntity pNewTarget = pEvent.getNewTarget();
+        LivingEntity pOldTarget = pEvent.getOriginalTarget();
+        LivingEntity pPeeper = pEvent.getEntity();
+        if (pNewTarget == null){
+            return;
+        }
+
+        if(pOldTarget.hasEffect(ModEffects.INCOGNITO_EFFECT.get()) && !pPeeper.hasLineOfSight(pOldTarget)){
+               pEvent.setNewTarget(null);
+               pPeeper.getBrain().eraseMemory(MemoryModuleType.HURT_BY_ENTITY);
+               pPeeper.getBrain().eraseMemory(MemoryModuleType.NEAREST_VISIBLE_PLAYER);
+               pPeeper.getBrain().eraseMemory(MemoryModuleType.ANGRY_AT);
+        }
     }
 }
+

@@ -19,17 +19,8 @@ public class IncognitoEffect extends MobEffect {
 
         boolean isMaxHealth = pLivingEntity.getHealth() >= pLivingEntity.getMaxHealth();
         pLivingEntity.setInvisible(isMaxHealth);
-        pLivingEntity.setCustomName(Component.literal("Something"));
+        pLivingEntity.setCustomName(Component.literal("§kSomething"));
         pLivingEntity.setCustomNameVisible(false);
-
-        if (isMaxHealth && !pLivingEntity.hasEffect(MobEffects.INVISIBILITY)){
-            pLivingEntity.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 20, 2, false,false,false));
-        }
-
-        if (pLivingEntity instanceof Player pPlayer){
-            pPlayer.setCustomName(Component.literal("Something"));
-            pPlayer.setCustomNameVisible(false);
-        }
 
         super.applyEffectTick(pLivingEntity, pAmplifier);
     }

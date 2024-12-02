@@ -31,13 +31,15 @@ public abstract class ItemEntityMixin {
                 pItemEntity().spawnAtLocation(BottleToMetal.map(this.getItem().getItem()));
             }
             if (BottleToMetal.returnMap(this.getItem().getItem()) == null){
-                pItemEntity().playSound(SoundEvents.GLASS_BREAK);
+                for (int i = this.getItem().getCount(); i > 0 ; i--){
+                    pItemEntity().playSound(SoundEvents.GLASS_BREAK);
+                }
             }
             pItemEntity().discard();
         }
         if (BottleToMetal.returnMap(this.getItem().getItem()) != null && pItemEntity().isInPowderSnow){
             for (int i = this.getItem().getCount(); i > 0 ; i--){
-                pItemEntity().spawnAtLocation(BottleToMetal.map(this.getItem().getItem()));
+                pItemEntity().spawnAtLocation(BottleToMetal.returnMap(this.getItem().getItem()));
             }
             pItemEntity().discard();
         }

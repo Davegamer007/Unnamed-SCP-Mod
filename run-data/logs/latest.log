@@ -1,40 +1,40 @@
-[28nov.2024 09:05:14.564] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, /home/davihmaf/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.3.11, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, unnamedscpmod, --all, --output, /home/davihmaf/IdeaProjects/Unnamed-SCP-Mod/src/generated/resources, --existing, /home/davihmaf/IdeaProjects/Unnamed-SCP-Mod/src/main/resources, --mixin.config, mixins.unnamedscpmod.json]
-[28nov.2024 09:05:14.568] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.13 by Eclipse Adoptium; OS Linux arch amd64 version 6.8.0-49-generic
-[28nov.2024 09:05:14.684] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[28nov.2024 09:05:14.752] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/home/davihmaf/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23116!/ Service=ModLauncher Env=CLIENT
-[28nov.2024 09:05:15.104] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /home/davihmaf/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.3.11/427f703e065645e6ab0d183bfaee6253f474393d/javafmllanguage-1.20.1-47.3.11.jar is missing mods.toml file
-[28nov.2024 09:05:15.106] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /home/davihmaf/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.3.11/f59825d2e5d797a1bb3699876861d9f5cd616ad0/lowcodelanguage-1.20.1-47.3.11.jar is missing mods.toml file
-[28nov.2024 09:05:15.108] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /home/davihmaf/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.3.11/6624469b892cf7349addc8c7272ba0f9c1628e3f/mclanguage-1.20.1-47.3.11.jar is missing mods.toml file
-[28nov.2024 09:05:15.109] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /home/davihmaf/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.3.11/19742efc9b2d4063f19579d80f99579725e034eb/fmlcore-1.20.1-47.3.11.jar is missing mods.toml file
-[28nov.2024 09:05:15.175] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[28nov.2024 09:05:16.514] [main/WARN] [mixin/]: Compatibility level JAVA_17 specified by mixins.unnamedscpmod.json is higher than the maximum level supported by this version of mixin (JAVA_13).
-[28nov.2024 09:05:16.515] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[28nov.2024 09:05:16.515] [main/ERROR] [mixin/]: Mixin config mixins.unnamedscpmod.json does not specify "minVersion" property
-[28nov.2024 09:05:16.519] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, /home/davihmaf/.gradle/caches/forge_gradle/assets, --assetIndex, 5, --mod, unnamedscpmod, --all, --output, /home/davihmaf/IdeaProjects/Unnamed-SCP-Mod/src/generated/resources, --existing, /home/davihmaf/IdeaProjects/Unnamed-SCP-Mod/src/main/resources]
-[28nov.2024 09:05:16.542] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
-[28nov.2024 09:05:16.543] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
-[28nov.2024 09:05:16.550] [main/INFO] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
-[28nov.2024 09:05:16.550] [main/INFO] [mixin/]: Selecting config mixins.unnamedscpmod.json
-[28nov.2024 09:05:16.554] [main/WARN] [mixin/]: Reference map 'unnamedscpmod.mixin-refmap.json' for mixins.unnamedscpmod.json could not be read. If this is a development environment you can ignore this message
-[28nov.2024 09:05:16.555] [main/INFO] [mixin/]: Preparing mixins.unnamedscpmod.json (4)
-[28nov.2024 09:05:16.930] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [unnamedscpmod]
-[28nov.2024 09:05:17.120] [main/INFO] [mixin/]: Mixing ItemEntityMixin from mixins.unnamedscpmod.json into net.minecraft.world.entity.item.ItemEntity
-[28nov.2024 09:05:17.264] [main/INFO] [mixin/]: Mixing PlayerMixin from mixins.unnamedscpmod.json into net.minecraft.world.entity.player.Player
-[28nov.2024 09:05:21.710] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.11, for MC 1.20.1 with MCP 20230612.114412
-[28nov.2024 09:05:21.714] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.11 Initialized
-[28nov.2024 09:05:22.209] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/home/davihmaf/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.11_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.11_mapped_parchment_2023.09.03-1.20.1.jar%23181!/assets/.mcassetsroot' uses unexpected schema
-[28nov.2024 09:05:22.209] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/home/davihmaf/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.11_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.11_mapped_parchment_2023.09.03-1.20.1.jar%23181!/data/.mcassetsroot' uses unexpected schema
-[28nov.2024 09:05:22.379] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[28nov.2024 09:05:22.417] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 38 ms
-[28nov.2024 09:05:22.417] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[28nov.2024 09:05:22.462] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 44 ms
-[28nov.2024 09:05:22.462] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: unnamedscpmod
-[28nov.2024 09:05:22.597] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: unnamedscpmod finished after 134 ms
-[28nov.2024 09:05:22.598] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: unnamedscpmod
-[28nov.2024 09:05:22.607] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: unnamedscpmod finished after 9 ms
-[28nov.2024 09:05:22.608] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id unnamedscpmod
-[28nov.2024 09:05:22.625] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id unnamedscpmod finished after 17 ms
-[28nov.2024 09:05:22.625] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id unnamedscpmod
-[28nov.2024 09:05:22.628] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id unnamedscpmod finished after 2 ms
-[28nov.2024 09:05:22.628] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 249 ms
-[28nov.2024 09:05:22.632] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 76, old count: 76, new count: 77, removed stale: 0, written: 0
+[02dez.2024 14:46:38.923] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, /home/davihmaf/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 47.3.11, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, unnamedscpmod, --all, --output, /home/davihmaf/IdeaProjects/Unnamed-SCP-Mod/src/generated/resources, --existing, /home/davihmaf/IdeaProjects/Unnamed-SCP-Mod/src/main/resources, --mixin.config, mixins.unnamedscpmod.json]
+[02dez.2024 14:46:38.929] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.13 by Eclipse Adoptium; OS Linux arch amd64 version 6.8.0-49-generic
+[02dez.2024 14:46:39.056] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[02dez.2024 14:46:39.116] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/home/davihmaf/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23116!/ Service=ModLauncher Env=CLIENT
+[02dez.2024 14:46:39.455] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /home/davihmaf/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.20.1-47.3.11/427f703e065645e6ab0d183bfaee6253f474393d/javafmllanguage-1.20.1-47.3.11.jar is missing mods.toml file
+[02dez.2024 14:46:39.456] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /home/davihmaf/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.20.1-47.3.11/f59825d2e5d797a1bb3699876861d9f5cd616ad0/lowcodelanguage-1.20.1-47.3.11.jar is missing mods.toml file
+[02dez.2024 14:46:39.457] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /home/davihmaf/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.20.1-47.3.11/6624469b892cf7349addc8c7272ba0f9c1628e3f/mclanguage-1.20.1-47.3.11.jar is missing mods.toml file
+[02dez.2024 14:46:39.458] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /home/davihmaf/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.20.1-47.3.11/19742efc9b2d4063f19579d80f99579725e034eb/fmlcore-1.20.1-47.3.11.jar is missing mods.toml file
+[02dez.2024 14:46:39.513] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[02dez.2024 14:46:40.712] [main/WARN] [mixin/]: Compatibility level JAVA_17 specified by mixins.unnamedscpmod.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[02dez.2024 14:46:40.713] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[02dez.2024 14:46:40.713] [main/ERROR] [mixin/]: Mixin config mixins.unnamedscpmod.json does not specify "minVersion" property
+[02dez.2024 14:46:40.718] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, /home/davihmaf/.gradle/caches/forge_gradle/assets, --assetIndex, 5, --mod, unnamedscpmod, --all, --output, /home/davihmaf/IdeaProjects/Unnamed-SCP-Mod/src/generated/resources, --existing, /home/davihmaf/IdeaProjects/Unnamed-SCP-Mod/src/main/resources]
+[02dez.2024 14:46:40.746] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
+[02dez.2024 14:46:40.748] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
+[02dez.2024 14:46:40.753] [main/INFO] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[02dez.2024 14:46:40.754] [main/INFO] [mixin/]: Selecting config mixins.unnamedscpmod.json
+[02dez.2024 14:46:40.758] [main/WARN] [mixin/]: Reference map 'unnamedscpmod.mixin-refmap.json' for mixins.unnamedscpmod.json could not be read. If this is a development environment you can ignore this message
+[02dez.2024 14:46:40.759] [main/INFO] [mixin/]: Preparing mixins.unnamedscpmod.json (4)
+[02dez.2024 14:46:41.092] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [unnamedscpmod]
+[02dez.2024 14:46:41.276] [main/INFO] [mixin/]: Mixing ItemEntityMixin from mixins.unnamedscpmod.json into net.minecraft.world.entity.item.ItemEntity
+[02dez.2024 14:46:41.406] [main/INFO] [mixin/]: Mixing PlayerMixin from mixins.unnamedscpmod.json into net.minecraft.world.entity.player.Player
+[02dez.2024 14:46:45.415] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.11, for MC 1.20.1 with MCP 20230612.114412
+[02dez.2024 14:46:45.417] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.11 Initialized
+[02dez.2024 14:46:45.861] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/home/davihmaf/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.11_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.11_mapped_parchment_2023.09.03-1.20.1.jar%23181!/assets/.mcassetsroot' uses unexpected schema
+[02dez.2024 14:46:45.861] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/home/davihmaf/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.11_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.11_mapped_parchment_2023.09.03-1.20.1.jar%23181!/data/.mcassetsroot' uses unexpected schema
+[02dez.2024 14:46:45.983] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[02dez.2024 14:46:46.019] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 34 ms
+[02dez.2024 14:46:46.019] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[02dez.2024 14:46:46.057] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 37 ms
+[02dez.2024 14:46:46.057] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: unnamedscpmod
+[02dez.2024 14:46:46.163] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: unnamedscpmod finished after 105 ms
+[02dez.2024 14:46:46.163] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: unnamedscpmod
+[02dez.2024 14:46:46.171] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: unnamedscpmod finished after 7 ms
+[02dez.2024 14:46:46.171] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id unnamedscpmod
+[02dez.2024 14:46:46.186] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id unnamedscpmod finished after 15 ms
+[02dez.2024 14:46:46.187] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id unnamedscpmod
+[02dez.2024 14:46:46.189] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id unnamedscpmod finished after 1 ms
+[02dez.2024 14:46:46.189] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 205 ms
+[02dez.2024 14:46:46.192] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 78, old count: 78, new count: 79, removed stale: 0, written: 0

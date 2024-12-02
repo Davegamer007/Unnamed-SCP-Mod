@@ -2,6 +2,7 @@ package net.davegamer007vinicius1232426.unnamedscpmod.item.custom.easterEggs;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.davegamer007vinicius1232426.unnamedscpmod.entity.custom.ThalassorexProjectile;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -10,6 +11,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -58,7 +60,6 @@ public class ThalassoRex extends SCPItem implements Vanishable {
 
         if (pPlayer.isShiftKeyDown() && mode == 2){
             nbtData.putInt(MODE_TAG, 0);
-            pStack.enchant(Enchantments.LOYALTY, 0);
             return InteractionResultHolder.success(pStack);
         }  else
         if (!pPlayer.isShiftKeyDown() && mode == 2){
@@ -66,7 +67,6 @@ public class ThalassoRex extends SCPItem implements Vanishable {
         }  else
         if (pPlayer.isShiftKeyDown() && mode < 2){
             nbtData.putInt(MODE_TAG, mode + 1);
-            pStack.enchant(Enchantments.LOYALTY, 0);
             return InteractionResultHolder.success(pStack);
         } else {pPlayer.startUsingItem(pUsedHand);}
         return super.use(pLevel, pPlayer, pUsedHand);
@@ -118,7 +118,7 @@ public class ThalassoRex extends SCPItem implements Vanishable {
                 }
                 if (!pLevel.isClientSide) {
                     if (pMode == 1) {
-                        ThrownTrident tridentProjectile = new ThrownTrident(pLevel, pPlayer, pStack);
+                        ThrownTrident tridentProjectile = new ThalassorexProjectile(pLevel, pPlayer, pStack);
                         tridentProjectile.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 2.5F + 4 * 0.5F, 1.0F);
                         if (pPlayer.getAbilities().instabuild) {
                             tridentProjectile.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
@@ -126,9 +126,6 @@ public class ThalassoRex extends SCPItem implements Vanishable {
 
                         pLevel.addFreshEntity(tridentProjectile);
                         pLevel.playSound((Player)null, tridentProjectile, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
-                        if (!pPlayer.getAbilities().instabuild) {
-                            pPlayer.getInventory().removeItem(pStack);
-                        }
                     }
                 }
             }
@@ -138,13 +135,14 @@ public class ThalassoRex extends SCPItem implements Vanishable {
     @Override
     public void onInventoryTick(ItemStack stack, Level level, Player player, int slotIndex, int selectedIndex) {
         ItemStack pHandItem = player.getItemInHand(player.getUsedItemHand());
-        Level pLevel = player.level();
-        if (pHandItem.getOrCreateTag().getInt(MODE_TAG) == 2){
+        CompoundTag nbtData = pHandItem.getOrCreateTag();
+        if (nbtData.getInt(MODE_TAG) == 2){
             player.isInvulnerableTo(level.damageSources().fall());
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION,60, 2));
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,60, 3));
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60, 8));
             player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING,60, 1));
+            player.addEffect(new MobEffectInstance(MobEffects.HUNGER, 60, 6));
         }
         super.onInventoryTick(stack, level, player, slotIndex, selectedIndex);
     }

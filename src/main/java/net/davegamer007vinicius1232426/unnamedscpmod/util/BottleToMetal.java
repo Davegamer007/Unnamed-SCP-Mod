@@ -26,6 +26,7 @@ public class BottleToMetal {
         bottleMap.put(ModItems.BOTTLE_OF_TELEKILL.get(), ModItems.TELEKILL.get());
         bottleMap.put(Items.LAVA_BUCKET, Items.OBSIDIAN);
         bottleMap.put(Items.WATER_BUCKET, Items.ICE);
+        bottleMap.put(Items.POTION, Items.ICE);
 
             return bottleMap.get(pInput);
     }
