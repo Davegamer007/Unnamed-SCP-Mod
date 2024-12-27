@@ -47,5 +47,9 @@
   "item.unnamedscpmod.bottle_of_netherite": "Bottle of Liquid Netherite",
   "item.unnamedscpmod.bottle_of_emeralds": "Bottle of Liquid Emeralds",
   "item.unnamedscpmod.bottle_of_telekill": "Bottle of Liquid Telekill",
-  "item.unnamedscpmod.bottle_of_gore": "Bottle of Gore"
+  "item.unnamedscpmod.bottle_of_gore": "Bottle of Gore",
+
+  "key.category.unnamedscpmod.blinking": "Blinking Controls",
+  "key.unnamedscpmod.hold_eye": "Hold Eye Open",
+  "key.unnamedscpmod.close_eye": "Close Eye"
 }

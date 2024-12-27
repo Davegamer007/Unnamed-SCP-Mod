@@ -6,6 +6,7 @@ import net.davegamer007vinicius1232426.unnamedscpmod.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -34,6 +35,14 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.BOTTLE_OF_GOLD.get(),
                         ModItems.BOTTLE_OF_TELEKILL.get()
                 );
+
+        this.tag(ModTags.Items.SWEET).add(
+                Items.SUGAR,
+                Items.CAKE,
+                Items.COOKIE,
+                Items.SUGAR_CANE
+
+        );
     }
 }
 

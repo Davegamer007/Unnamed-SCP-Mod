@@ -1,10 +1,7 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.item;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
-import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP268;
-import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP310Item;
-import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP458;
-import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.SCP622;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.*;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.ModArmorMaterials;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.easterEggs.ThalassoRex;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -42,7 +39,7 @@ public class ModItems {
     public static final RegistryObject<Item> SPC939SPIKE = ITEMS.register("scp939_spike",
             ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> SCP999GELLO = ITEMS.register("scp999_gello",
-            ()-> new Item(new Item.Properties()));
+            ()-> new SCP999Gello(new Item.Properties()));
     public static final RegistryObject<Item> SALT = ITEMS.register("salt",
             ()-> new Item(new Item.Properties()));
 

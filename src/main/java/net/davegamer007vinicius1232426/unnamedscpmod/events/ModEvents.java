@@ -2,11 +2,18 @@ package net.davegamer007vinicius1232426.unnamedscpmod.events;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
+import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPFuelItem;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPItem;
+import net.davegamer007vinicius1232426.unnamedscpmod.networking.ModMessages;
+import net.davegamer007vinicius1232426.unnamedscpmod.networking.packets.S2C.SyncEyeStateS2CPacket;
+import net.davegamer007vinicius1232426.unnamedscpmod.playercapabilities.blinking.PlayerBlinking;
+import net.davegamer007vinicius1232426.unnamedscpmod.playercapabilities.blinking.PlayerBlinkingProvider;
 import net.davegamer007vinicius1232426.unnamedscpmod.util.BottleToMetal;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -15,17 +22,19 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.item.ItemExpireEvent;
-import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.List;
 @Mod.EventBusSubscriber(modid = UnnamedSCPMod.MOD_ID)
 public class ModEvents{
 
@@ -84,6 +93,91 @@ public class ModEvents{
                pPeeper.getBrain().eraseMemory(MemoryModuleType.NEAREST_VISIBLE_PLAYER);
                pPeeper.getBrain().eraseMemory(MemoryModuleType.ANGRY_AT);
         }
+    }
+
+    @SubscribeEvent
+    public static void scpItemVoidEvent(ItemExpireEvent pEvent){
+        if (!(pEvent.getEntity() instanceof ItemEntity)){return;}
+        ItemEntity pItemEntity = (ItemEntity) pEvent.getEntity();
+        if (pItemEntity.getItem().getItem() instanceof SCPItem
+                || pItemEntity.getItem().getItem() instanceof SCPFuelItem){
+            pEvent.isCanceled();
+        }
+    }
+
+
+
+
+    @SubscribeEvent
+    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
+        if(event.getObject() instanceof Player) {
+            if(!event.getObject().getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).isPresent()) {
+                event.addCapability(new ResourceLocation(UnnamedSCPMod.MOD_ID, "properties"), new PlayerBlinkingProvider());
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone pEvent){
+        if (pEvent.isWasDeath()){
+            pEvent.getOriginal().getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).ifPresent(
+                    oldStore -> pEvent.getOriginal().getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).ifPresent(
+                            newStore -> newStore.copyFrom(oldStore)));
+
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRegisterCapabilitiesEvent(RegisterCapabilitiesEvent pEvent){
+        pEvent.register(PlayerBlinking.class);
+    }
+
+    @SubscribeEvent
+    public static void onPlayerJoinWorld(EntityJoinLevelEvent event) {
+        if(!event.getLevel().isClientSide()) {
+            if(event.getEntity() instanceof ServerPlayer player) {
+                player.getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).ifPresent(blink -> {
+                    ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getBlinkTick(),blink.getAreOpen()), player);
+                });
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerTick(TickEvent.PlayerTickEvent pEvent){
+        if (pEvent.side != LogicalSide.SERVER){
+            return;
+        }
+        pEvent.player.getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).ifPresent(blink ->{
+
+            if (blink.getClock() == 0 && blink.getAreOpen()){
+                if (blink.getSecsUntilNextBlink() > 0){
+                    blink.removeBlinkSecs(1);
+                    ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getSecsUntilNextBlink(), blink.getAreOpen()), (ServerPlayer) pEvent.player);
+                    blink.setClock(40);
+                } else {
+                    blink.setBlinkTick(4);
+                    blink.switchEyeState();
+                    ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getSecsUntilNextBlink(), blink.getAreOpen()), (ServerPlayer) pEvent.player);
+                    blink.setBlinkSecs(8);
+                    blink.setClock(40);
+                }
+            }
+            if (blink.getClock() != 0 && blink.getAreOpen()){
+                blink.clockTickDown();
+            }
+            blink.blinkTickDown();
+
+            if (blink.getBlinkTick() == 0 && !blink.getAreOpen()){
+                blink.switchHeldEyeState();
+                ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getSecsUntilNextBlink(), blink.getAreOpen()), (ServerPlayer) pEvent.player);
+            }
+
+            if (!blink.getAreOpen()){
+                blink.setBlinkSecs(8);
+            }
+
+        });
     }
 }
 

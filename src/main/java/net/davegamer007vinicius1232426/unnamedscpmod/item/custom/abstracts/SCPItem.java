@@ -1,5 +1,6 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts;
 
+import net.davegamer007vinicius1232426.unnamedscpmod.entity.custom.SCP999Entity;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.damagesource.DamageType;
@@ -31,5 +32,19 @@ public abstract class SCPItem extends Item {
     @Override
     public boolean canBeHurtBy(DamageSource pDamageSource) {
         return false;
+    }
+
+    @Override
+    public void onInventoryTick(ItemStack stack, Level level, Player player, int slotIndex, int selectedIndex) {
+        if (player.getY() <= -64){
+            ItemStack pStack = stack.copy();
+            ItemEntity droppedItem = new ItemEntity(player.level(), player.getX(), player.getEyeY(), player.getZ(), pStack);
+                droppedItem.setPickUpDelay(20);
+                droppedItem.setThrower(player.getUUID());
+                droppedItem.setDeltaMovement(0, player.fallDistance/10,0);
+                player.level().addFreshEntity(droppedItem);
+                stack.setCount(0);
+        }
+        super.onInventoryTick(stack, level, player, slotIndex, selectedIndex);
     }
 }
