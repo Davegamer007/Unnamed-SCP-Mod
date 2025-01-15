@@ -12,11 +12,9 @@ public class BlinkHudData {
         BlinkHudData.playerIsOpen = pInput;
     }
 
-    public static int getPlayerBlinkSex(){
-        return BlinkHudData.playerBlinkSex;
-    }
+    public static int getPlayerBlinkSex(){return playerBlinkSex;}
 
     public static boolean getPlayerisOpen(){
-        return BlinkHudData.playerIsOpen;
+        return playerIsOpen;
     }
 }

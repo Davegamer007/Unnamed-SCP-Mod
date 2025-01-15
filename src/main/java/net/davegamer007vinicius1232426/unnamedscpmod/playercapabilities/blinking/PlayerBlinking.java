@@ -1,10 +1,13 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.playercapabilities.blinking;
 
+import net.davegamer007vinicius1232426.unnamedscpmod.networking.ModMessages;
+import net.davegamer007vinicius1232426.unnamedscpmod.networking.packets.S2C.SyncEyeStateS2CPacket;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
 
 public class PlayerBlinking {
 
-    private int secsUntilNextBlink = 8;
+    private int blinkSex = 8;
     private int clock = 20;
     private int blinkTick = 0;
     private boolean areHeldOpen = false;
@@ -15,69 +18,83 @@ public class PlayerBlinking {
     private final String CLOCK = "clock";
     private final String BLINK_TICK_TAG = "clock2";
 
-    public int getSecsUntilNextBlink(){
-        return this.secsUntilNextBlink;
+    public void clockTickDown(ServerPlayer pPlayer){
+        if (this.clock == 0){
+            this.clock = 40;
+            if (this.blinkSex > 0){
+                this.blinkSex = this.blinkSex-1;
+                ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(this.blinkSex, this.areOpen), pPlayer);
+            } else {
+                this.blinkSex = 8;
+                this.blinkTick = 2;
+                switchEyeState();
+                ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(this.blinkSex, this.areOpen), pPlayer);
+            }
+        } else {
+            --this.clock;
+        }
+        if (this.blinkTick > 0){
+            --this.blinkTick;
+        } else if (this.blinkTick == 0){
+            switchEyeState();
+            ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(this.blinkSex, this.areOpen), pPlayer);
+            this.blinkTick = -1;
+        }
     }
 
-    public void removeBlinkSecs(int pInput){
-        this.secsUntilNextBlink = Math.max(secsUntilNextBlink - pInput,  0);
+    public void resetClock(){
+        this.clock = 40;
     }
 
-    public void clockTickDown() {
-        this.clock = Math.max(clock - 1, 0);
+    public void resetBlinkSex(ServerPlayer pPlayer){
+        this.blinkSex = 8;
+        ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(this.blinkSex, this.areOpen), pPlayer);
     }
 
-    public void blinkTickDown(){
-        this.blinkTick = Math.max(blinkTick - 1, 0);
-    }
-
-    public int getClock() {
-        return this.clock;
-    }
-
-    public int getBlinkTick(){
-        return this.blinkTick;
-    }
-
-    public void setBlinkTick(int pInput){
-        this.blinkTick = pInput;
-    }
-
-    public void setClock(int pInput){
-        this.clock = pInput;
-    }
-
-    public void setBlinkSecs(int pInput){
-        this.secsUntilNextBlink = pInput;
-    }
 
     public void switchEyeState(){
         this.areOpen = !this.areOpen;
     }
 
-    public boolean getAreOpen(){
-        return areOpen;
-    }
-
-    public void switchHeldEyeState() {
+    public void switchHeldEyeState(){
         this.areHeldOpen = !this.areHeldOpen;
     }
 
+    public int getClock(){
+        return this.clock;
+    }
+
+    public int getBlinkSex(){
+        return this.blinkSex;
+    }
+
+    public boolean areEyesOpen(){
+        return this.areOpen;
+    }
+
+    public boolean areHeldOpen(){
+        return this.areHeldOpen;
+    }
+
+
+
     public void copyFrom(PlayerBlinking source){
-        this.secsUntilNextBlink = source.secsUntilNextBlink;
+        this.blinkSex = source.blinkSex;
         this.areOpen = source.areOpen;
         this.areHeldOpen = source.areHeldOpen;
         this.clock = source.clock;
         this.blinkTick = source.blinkTick;
     }
 
+
     public void saveNBTData(CompoundTag nbtData){
-        nbtData.putInt(BLINK_TAG, secsUntilNextBlink);
+        nbtData.putInt(BLINK_TAG, blinkSex);
         nbtData.putInt(CLOCK, clock);
         nbtData.putInt(BLINK_TICK_TAG, blinkTick);
         nbtData.putBoolean(EYE_TAG, areOpen);
         nbtData.putBoolean(HOLD_TAG, areHeldOpen);
     }
+
 
     public void loadNBTData(CompoundTag nbtData){
         nbtData.getInt(BLINK_TAG);
@@ -85,6 +102,5 @@ public class PlayerBlinking {
         nbtData.getInt(BLINK_TICK_TAG);
         nbtData.getBoolean(EYE_TAG);
         nbtData.getBoolean(HOLD_TAG);
-
     }
 }

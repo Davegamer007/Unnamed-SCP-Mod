@@ -9,8 +9,6 @@ import net.davegamer007vinicius1232426.unnamedscpmod.networking.packets.S2C.Sync
 import net.davegamer007vinicius1232426.unnamedscpmod.playercapabilities.blinking.PlayerBlinking;
 import net.davegamer007vinicius1232426.unnamedscpmod.playercapabilities.blinking.PlayerBlinkingProvider;
 import net.davegamer007vinicius1232426.unnamedscpmod.util.BottleToMetal;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -137,7 +135,7 @@ public class ModEvents{
         if(!event.getLevel().isClientSide()) {
             if(event.getEntity() instanceof ServerPlayer player) {
                 player.getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).ifPresent(blink -> {
-                    ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getBlinkTick(),blink.getAreOpen()), player);
+                    ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getBlinkSex(), blink.areEyesOpen()), player);
                 });
             }
         }
@@ -149,34 +147,14 @@ public class ModEvents{
             return;
         }
         pEvent.player.getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).ifPresent(blink ->{
-
-            if (blink.getClock() == 0 && blink.getAreOpen()){
-                if (blink.getSecsUntilNextBlink() > 0){
-                    blink.removeBlinkSecs(1);
-                    ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getSecsUntilNextBlink(), blink.getAreOpen()), (ServerPlayer) pEvent.player);
-                    blink.setClock(40);
-                } else {
-                    blink.setBlinkTick(4);
-                    blink.switchEyeState();
-                    ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getSecsUntilNextBlink(), blink.getAreOpen()), (ServerPlayer) pEvent.player);
-                    blink.setBlinkSecs(8);
-                    blink.setClock(40);
-                }
+            ServerPlayer sPlayer = (ServerPlayer) pEvent.player;
+            if (blink.areEyesOpen()){
+                blink.clockTickDown(sPlayer);
+            } else {
+                blink.clockTickDown(sPlayer);
+                blink.resetBlinkSex(sPlayer);
+                blink.resetClock();
             }
-            if (blink.getClock() != 0 && blink.getAreOpen()){
-                blink.clockTickDown();
-            }
-            blink.blinkTickDown();
-
-            if (blink.getBlinkTick() == 0 && !blink.getAreOpen()){
-                blink.switchHeldEyeState();
-                ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getSecsUntilNextBlink(), blink.getAreOpen()), (ServerPlayer) pEvent.player);
-            }
-
-            if (!blink.getAreOpen()){
-                blink.setBlinkSecs(8);
-            }
-
         });
     }
 }

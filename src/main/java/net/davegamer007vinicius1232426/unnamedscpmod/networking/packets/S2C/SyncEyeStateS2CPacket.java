@@ -21,8 +21,8 @@ public class SyncEyeStateS2CPacket {
     }
 
     public SyncEyeStateS2CPacket(FriendlyByteBuf buf){
-        this.playerIsOpen = buf.readBoolean();
         this.playerBlinkSex = buf.readInt();
+        this.playerIsOpen = buf.readBoolean();
     }
 
     public void toBytes(FriendlyByteBuf buf){

@@ -30,12 +30,12 @@ public class ChangeEyeStateC2SPacket {
             ServerPlayer player = pContext.getSender();
             player.getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).ifPresent(playerBlinking -> {
                 playerBlinking.switchEyeState();
-                if (!playerBlinking.getAreOpen()){
+                if (!playerBlinking.areEyesOpen()){
                     player.sendSystemMessage(Component.literal("Closed").withStyle(ChatFormatting.GRAY));
-                    playerBlinking.setClock(40);
-                    playerBlinking.setBlinkSecs(9);
+                    playerBlinking.resetClock();
+                    playerBlinking.resetBlinkSex(player);
                 } else {player.sendSystemMessage(Component.literal("Opened").withStyle(ChatFormatting.GRAY));}
-                ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(playerBlinking.getSecsUntilNextBlink(), playerBlinking.getAreOpen()), player);
+                ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(playerBlinking.getBlinkSex(), playerBlinking.areEyesOpen()), player);
 
 
 
