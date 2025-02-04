@@ -25,8 +25,19 @@ public class BottleToMetal {
         bottleMap.put(ModItems.BOTTLE_OF_QUARTZ.get(), Items.QUARTZ);
         bottleMap.put(ModItems.BOTTLE_OF_TELEKILL.get(), ModItems.TELEKILL.get());
         bottleMap.put(Items.LAVA_BUCKET, Items.OBSIDIAN);
+        bottleMap.put(Items.WATER_BUCKET, Items.ICE);
+        bottleMap.put(Items.POTION, Items.ICE);
 
             return bottleMap.get(pInput);
+    }
+
+    public static Item returnMap(Item pInput) {
+        Map<Item, Item> returnMap = new HashMap<>();
+
+        returnMap.put(Items.LAVA_BUCKET, Items.BUCKET);
+        returnMap.put(Items.WATER_BUCKET, Items.BUCKET);
+
+        return returnMap.get(pInput);
     }
 }
 

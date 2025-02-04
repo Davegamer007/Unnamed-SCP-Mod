@@ -12,7 +12,7 @@
       "parent": "unnamedscpmod:item/scp622_3d"
     },
     "fixed": {
-      "parent": "unnamedscpmod:item/scp622_2d"
+      "parent": "unnamedscpmod:item/scp622_3d"
     }
   }
 }

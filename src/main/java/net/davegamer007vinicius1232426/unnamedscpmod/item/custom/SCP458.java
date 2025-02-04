@@ -120,7 +120,7 @@ public class SCP458 extends SCPItem {
         int pSlices = nbtData.getInt(SLICE_TAG);
         BlockState pState = ModBlocks.SCP458_BLOCK.get().defaultBlockState();
         BlockState pPizza =  (BlockState) pState.setValue(net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SCP458.SLICES, pSlices)
-                .setValue(net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SCP458.FACING,pContext.getClickedFace());
+                .setValue(net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SCP458.FACING,pContext.getPlayer().getDirection());
 
         boolean pPlace = pStack.getOrCreateTag().getBoolean(PLACE_TAG);
 

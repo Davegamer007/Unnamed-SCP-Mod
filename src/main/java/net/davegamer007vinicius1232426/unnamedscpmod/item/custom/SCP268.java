@@ -5,6 +5,8 @@ import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPArmorItem;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPItem;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -29,11 +31,18 @@ public class SCP268 extends SCPItem implements Equipable {
         super.onInventoryTick(stack, level, player, slotIndex, selectedIndex);
     }
 
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+        pPlayer.addItem(pPlayer.getItemBySlot(EquipmentSlot.HEAD));
+        swapWithEquipmentSlot(this, pLevel, pPlayer, pUsedHand);
+    return super.use(pLevel, pPlayer, pUsedHand);
+    }
+
     public static void incognitoHandler(LivingEntity pLivingEntity){
         if (pLivingEntity.getItemBySlot(EquipmentSlot.HEAD).is(ModItems.SCP268.get())
                 && !pLivingEntity.hasEffect(ModEffects.INCOGNITO_EFFECT.get())){
             pLivingEntity.addEffect(new MobEffectInstance(
-                    ModEffects.INCOGNITO_EFFECT.get(), 60, 1, false, false, true));
+                    ModEffects.INCOGNITO_EFFECT.get(), 80, 0, false, false, true));
         }
     }
 

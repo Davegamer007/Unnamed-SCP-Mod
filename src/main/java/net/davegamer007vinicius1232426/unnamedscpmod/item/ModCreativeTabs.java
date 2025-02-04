@@ -30,6 +30,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.SALT.get());
                         output.accept(ModItems.SCP458.get());
                         output.accept(ModItems.SCP268.get());
+                        output.accept(ModItems.SCP999GELLO.get());
 
 
 

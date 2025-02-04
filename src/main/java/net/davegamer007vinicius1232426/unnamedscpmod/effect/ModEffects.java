@@ -3,6 +3,7 @@ package net.davegamer007vinicius1232426.unnamedscpmod.effect;
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.custom.EternalFlame;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.custom.IncognitoEffect;
+import net.davegamer007vinicius1232426.unnamedscpmod.effect.custom.SerotoninEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,6 +20,9 @@ public class ModEffects {
 
     public static final RegistryObject<MobEffect> INCOGNITO_EFFECT = MOB_EFFECTS.register("incognito_effect",
             ()-> new IncognitoEffect(MobEffectCategory.NEUTRAL, 0));
+
+    public static final RegistryObject<MobEffect> SEROTONIN_EFFECT = MOB_EFFECTS.register("serotonin_effect",
+            ()-> new IncognitoEffect(MobEffectCategory.BENEFICIAL, 0xfff300));
 
 
 

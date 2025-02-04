@@ -38,10 +38,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('I', ModItems.RAW_TELEKILL.get())
                 .unlockedBy(getHasName(ModItems.RAW_TELEKILL.get()), has(ModItems.RAW_TELEKILL.get()))
                 .save(consumer);
-
-
-
-
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SALT_BLOCK.get())
+                .pattern("III")
+                .pattern("III")
+                .pattern("III")
+                .define('I', ModItems.SALT.get())
+                .unlockedBy(getHasName(ModItems.SALT.get()), has(ModItems.SALT.get()))
+                .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TELEKILL.get(), 9)
                 .requires(ModBlocks.TELEKILL_BLOCK.get())

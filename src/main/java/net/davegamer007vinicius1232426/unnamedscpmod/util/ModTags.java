@@ -21,6 +21,8 @@ public class ModTags {
 
         public static final TagKey<Item> IS_LIQUID = tag("is_liquid");
 
+        public static final TagKey<Item> SWEET = tag("sweet");
+
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(UnnamedSCPMod.MOD_ID, name));
         }

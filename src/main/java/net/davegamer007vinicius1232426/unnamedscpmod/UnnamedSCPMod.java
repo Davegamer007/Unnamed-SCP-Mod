@@ -3,14 +3,16 @@ package net.davegamer007vinicius1232426.unnamedscpmod;
 import com.mojang.logging.LogUtils;
 import net.davegamer007vinicius1232426.unnamedscpmod.block.ModBlocks;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
+import net.davegamer007vinicius1232426.unnamedscpmod.entity.ModEntities;
+import net.davegamer007vinicius1232426.unnamedscpmod.entity.client.modelsAnimationsEtc.scp999.SCP999Renderer;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModCreativeTabs;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.ModItems;
+import net.davegamer007vinicius1232426.unnamedscpmod.networking.ModMessages;
 import net.davegamer007vinicius1232426.unnamedscpmod.particle.ModParticles;
 import net.davegamer007vinicius1232426.unnamedscpmod.util.ModItemProperties;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -42,6 +44,7 @@ public class UnnamedSCPMod
         ModEffects.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
         ModParticles.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -52,7 +55,9 @@ public class UnnamedSCPMod
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            ModMessages.register();
+        });
     }
 
     // Add the example block item to the building blocks tab
@@ -89,6 +94,8 @@ public class UnnamedSCPMod
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.ETERNAL_FLAME_BLOCK.get(), RenderType.cutout());
             ModItemProperties.setup(event);
 
+
+            EntityRenderers.register(ModEntities.SCP999.get(), SCP999Renderer::new);
         }
     }
 }
