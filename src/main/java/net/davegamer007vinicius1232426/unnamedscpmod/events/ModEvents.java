@@ -1,6 +1,7 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.events;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
+import net.davegamer007vinicius1232426.unnamedscpmod.client.ModKeyBindings;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPFuelItem;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.SCPItem;
@@ -9,6 +10,8 @@ import net.davegamer007vinicius1232426.unnamedscpmod.networking.packets.S2C.Sync
 import net.davegamer007vinicius1232426.unnamedscpmod.playercapabilities.blinking.PlayerBlinking;
 import net.davegamer007vinicius1232426.unnamedscpmod.playercapabilities.blinking.PlayerBlinkingProvider;
 import net.davegamer007vinicius1232426.unnamedscpmod.util.BottleToMetal;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -29,6 +32,8 @@ import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.server.ServerLifecycleEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
@@ -135,7 +140,8 @@ public class ModEvents{
         if(!event.getLevel().isClientSide()) {
             if(event.getEntity() instanceof ServerPlayer player) {
                 player.getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).ifPresent(blink -> {
-                    ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getBlinkSex(), blink.areEyesOpen()), player);
+                    ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getBlinkSex(), true), player);
+                    player.sendSystemMessage(Component.literal("Press " + ModKeyBindings.CLOSE_EYE_BUTTON.getKey().getDisplayName() + " to open your Eyes").withStyle(ChatFormatting.YELLOW));
                 });
             }
         }
@@ -149,13 +155,18 @@ public class ModEvents{
         pEvent.player.getCapability(PlayerBlinkingProvider.PLAYER_BLINKING).ifPresent(blink ->{
             ServerPlayer sPlayer = (ServerPlayer) pEvent.player;
             if (blink.areEyesOpen()){
-                blink.clockTickDown(sPlayer);
+                blink.clockTickDown();
             } else {
-                blink.clockTickDown(sPlayer);
-                blink.resetBlinkSex(sPlayer);
+                blink.clockTickDown();
+                blink.resetBlinkSex();
                 blink.resetClock();
             }
+            ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(blink.getBlinkSex(), blink.areEyesOpen()), sPlayer);
         });
+    }
+
+    @SubscribeEvent
+    public static void scpSpawnEvent(TickEvent.ServerTickEvent pEvent){
     }
 }
 

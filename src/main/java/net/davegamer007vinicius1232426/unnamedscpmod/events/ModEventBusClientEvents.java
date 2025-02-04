@@ -30,7 +30,6 @@ public class ModEventBusClientEvents {
     @SubscribeEvent
     public static void onKeyRegister(RegisterKeyMappingsEvent pEvent){
         pEvent.register(ModKeyBindings.CLOSE_EYE_BUTTON);
-        pEvent.register(ModKeyBindings.HOLD_EYE_BUTTON);
     }
 
     @SubscribeEvent

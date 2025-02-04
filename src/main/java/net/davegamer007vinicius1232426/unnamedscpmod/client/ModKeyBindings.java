@@ -18,11 +18,8 @@ public class ModKeyBindings {
 
 
     public static final String BLINKING_KEY_CATEGORY = keyCategory("blinking");
-    public static final String HOLD_EYE_OPEN_KEY = keyInput("hold_eye");
     public static final String CLOSE_EYE_KEY = keyInput("close_eye");
 
     public static final KeyMapping CLOSE_EYE_BUTTON = new KeyMapping(CLOSE_EYE_KEY, KeyConflictContext.IN_GAME,
             InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_B, BLINKING_KEY_CATEGORY);
-    public static final KeyMapping HOLD_EYE_BUTTON = new KeyMapping(HOLD_EYE_OPEN_KEY, KeyConflictContext.IN_GAME,
-            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_H, BLINKING_KEY_CATEGORY);
 }

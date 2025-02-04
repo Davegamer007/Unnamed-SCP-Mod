@@ -14,17 +14,6 @@ import net.minecraftforge.fml.common.Mod;
 public class ModClientEvents {
     @SubscribeEvent
     public static void onKeyInput(InputEvent.Key pEvent){
-        if (ModKeyBindings.HOLD_EYE_BUTTON.isDown()){
-            int i = 8;
-            if (i > 0){
-                Minecraft.getInstance().player.sendSystemMessage(Component.literal("Eye is Held open time left " + (8-i)));
-                --i;
-            } else {
-                Minecraft.getInstance().player.sendSystemMessage(Component.literal("Blink"));
-                i = 8;
-            }
-        }
-
         if (ModKeyBindings.CLOSE_EYE_BUTTON.consumeClick()){
             ModMessages.sendToServer(new ChangeEyeStateC2SPacket());
         }

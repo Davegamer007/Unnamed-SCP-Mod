@@ -2,12 +2,8 @@ package net.davegamer007vinicius1232426.unnamedscpmod.item;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.*;
-import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.abstracts.ModArmorMaterials;
 import net.davegamer007vinicius1232426.unnamedscpmod.item.custom.easterEggs.ThalassoRex;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

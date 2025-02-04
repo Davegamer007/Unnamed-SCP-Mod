@@ -10,7 +10,6 @@ public class PlayerBlinking {
     private int blinkSex = 8;
     private int clock = 20;
     private int blinkTick = 0;
-    private boolean areHeldOpen = false;
     private boolean areOpen = true;
     private final String BLINK_TAG = "blinking";
     private final String EYE_TAG = "eye";
@@ -18,17 +17,15 @@ public class PlayerBlinking {
     private final String CLOCK = "clock";
     private final String BLINK_TICK_TAG = "clock2";
 
-    public void clockTickDown(ServerPlayer pPlayer){
+    public void clockTickDown(){
         if (this.clock == 0){
             this.clock = 40;
             if (this.blinkSex > 0){
                 this.blinkSex = this.blinkSex-1;
-                ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(this.blinkSex, this.areOpen), pPlayer);
             } else {
                 this.blinkSex = 8;
                 this.blinkTick = 2;
                 switchEyeState();
-                ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(this.blinkSex, this.areOpen), pPlayer);
             }
         } else {
             --this.clock;
@@ -37,7 +34,6 @@ public class PlayerBlinking {
             --this.blinkTick;
         } else if (this.blinkTick == 0){
             switchEyeState();
-            ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(this.blinkSex, this.areOpen), pPlayer);
             this.blinkTick = -1;
         }
     }
@@ -46,22 +42,13 @@ public class PlayerBlinking {
         this.clock = 40;
     }
 
-    public void resetBlinkSex(ServerPlayer pPlayer){
+    public void resetBlinkSex(){
         this.blinkSex = 8;
-        ModMessages.sendToPlayer(new SyncEyeStateS2CPacket(this.blinkSex, this.areOpen), pPlayer);
     }
 
 
     public void switchEyeState(){
         this.areOpen = !this.areOpen;
-    }
-
-    public void switchHeldEyeState(){
-        this.areHeldOpen = !this.areHeldOpen;
-    }
-
-    public int getClock(){
-        return this.clock;
     }
 
     public int getBlinkSex(){
@@ -72,16 +59,11 @@ public class PlayerBlinking {
         return this.areOpen;
     }
 
-    public boolean areHeldOpen(){
-        return this.areHeldOpen;
-    }
-
 
 
     public void copyFrom(PlayerBlinking source){
         this.blinkSex = source.blinkSex;
         this.areOpen = source.areOpen;
-        this.areHeldOpen = source.areHeldOpen;
         this.clock = source.clock;
         this.blinkTick = source.blinkTick;
     }
@@ -92,7 +74,6 @@ public class PlayerBlinking {
         nbtData.putInt(CLOCK, clock);
         nbtData.putInt(BLINK_TICK_TAG, blinkTick);
         nbtData.putBoolean(EYE_TAG, areOpen);
-        nbtData.putBoolean(HOLD_TAG, areHeldOpen);
     }
 
 

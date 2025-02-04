@@ -8,6 +8,7 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
 public class BlinkHudOverlay {
     private static ResourceLocation EYE;
+    private static final ResourceLocation BLACK = new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/black.png");
 
     public static final IGuiOverlay BLINK_HUD = ((gui, poseStack, partialTick, width, height) -> {
       int x = width/2;
@@ -18,30 +19,28 @@ public class BlinkHudOverlay {
 
         if (!BlinkHudData.getPlayerisOpen()){
             EYE = new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/eye_1.png");
+            poseStack.blit(BLACK, 0,0,0,0,2*x, y);
         } else {
             switch (BlinkHudData.getPlayerBlinkSex()){
-                case 0, 1:
-                    EYE = new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/eye_1.png");
-                    break;
-                case 2:
+                case 0:
                     EYE = new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/eye_2.png");
                     break;
-                case 3:
+                case 1:
                     EYE = new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/eye_3.png");
                     break;
-                case 4:
+                case 2:
                     EYE = new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/eye_4.png");
                     break;
-                case 5:
+                case 3:
                     EYE =  new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/eye_5.png");
                     break;
-                case 6:
+                case 4:
                     EYE = new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/eye_6.png");
                     break;
-                case 7:
+                case 5:
                     EYE = new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/eye_7.png");
                     break;
-                case 8:
+                case 6, 7, 8:
                     EYE = new ResourceLocation(UnnamedSCPMod.MOD_ID, "textures/hud_elements/eye_8.png");
                     break;
             }

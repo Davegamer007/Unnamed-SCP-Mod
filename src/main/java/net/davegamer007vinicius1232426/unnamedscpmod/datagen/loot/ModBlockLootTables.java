@@ -25,6 +25,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.FLOOR_TILES.get());
         this.dropSelf(ModBlocks.FLESH_BLOCK.get());
         this.dropSelf(ModBlocks.FLESH_SPONGE_BLOCK.get());
+        this.dropSelf(ModBlocks.FISH_POSTER.get());
 
         this.add(ModBlocks.TELEKILL_ORE.get(),
                 block -> createOreDrop(ModBlocks.TELEKILL_ORE.get(), ModItems.RAW_TELEKILL.get()));

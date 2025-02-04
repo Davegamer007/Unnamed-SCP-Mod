@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=down" : {"model": "unnamedscpmod:block/fish_poster_n"},
+    "facing=west": {"model": "unnamedscpmod:block/fish_poster_w"},
+    "facing=east" : {"model": "unnamedscpmod:block/fish_poster_e"},
+    "facing=south": {"model": "unnamedscpmod:block/fish_poster_n"},
+    "facing=north": {"model": "unnamedscpmod:block/fish_poster_s"},
+    "facing=up": {"model": "unnamedscpmod:block/fish_poster_n"}
+  }
+}

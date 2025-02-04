@@ -1,6 +1,7 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.block;
 
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
+import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.BasePosterBlock;
 import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.EternalFlameBlock;
 import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SCP458;
 import net.davegamer007vinicius1232426.unnamedscpmod.block.custom.SaltBlock;
@@ -42,6 +43,8 @@ public class ModBlocks {
             ()-> new SaltBlock(BlockBehaviour.Properties.copy(Blocks.SAND).instabreak()));
     public static final RegistryObject<Block> SCP458_BLOCK = registerBlock("scp458_block",
             ()-> new SCP458(BlockBehaviour.Properties.copy(Blocks.CAKE).instabreak()));
+    public static final RegistryObject<Block> FISH_POSTER = registerBlock("fish_poster",
+            ()-> new BasePosterBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).instabreak()));
 
 
 
