@@ -1,5 +1,8 @@
 package net.davegamer007vinicius1232426.unnamedscpmod.events;
 
+import com.google.common.base.Stopwatch;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.datafixers.util.Pair;
 import net.davegamer007vinicius1232426.unnamedscpmod.UnnamedSCPMod;
 import net.davegamer007vinicius1232426.unnamedscpmod.client.ModKeyBindings;
 import net.davegamer007vinicius1232426.unnamedscpmod.effect.ModEffects;
@@ -10,12 +13,19 @@ import net.davegamer007vinicius1232426.unnamedscpmod.networking.packets.S2C.Sync
 import net.davegamer007vinicius1232426.unnamedscpmod.playercapabilities.blinking.PlayerBlinking;
 import net.davegamer007vinicius1232426.unnamedscpmod.playercapabilities.blinking.PlayerBlinkingProvider;
 import net.davegamer007vinicius1232426.unnamedscpmod.util.BottleToMetal;
+import net.davegamer007vinicius1232426.unnamedscpmod.util.scp_gen.PlaceStructure;
 import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
+import net.minecraft.client.telemetry.events.WorldLoadEvent;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.commands.LocateCommand;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.animal.SnowGolem;
@@ -23,6 +33,8 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
@@ -33,10 +45,15 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.server.ServerLifecycleEvent;
+import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.Random;
+import java.util.RandomAccess;
+import java.util.random.RandomGenerator;
 
 @Mod.EventBusSubscriber(modid = UnnamedSCPMod.MOD_ID)
 public class ModEvents{
@@ -166,7 +183,32 @@ public class ModEvents{
     }
 
     @SubscribeEvent
-    public static void scpSpawnEvent(TickEvent.ServerTickEvent pEvent){
+    public static void scpSpawnEvent(TickEvent.ServerTickEvent pEvent) throws CommandSyntaxException {
+        try{
+        Level pLevel = pEvent.getServer().getLevel(Level.OVERWORLD);
+        int DayCount = (int) Math.floor((double) pLevel.getDayTime() /24000);
+        int NextDay = (int) Math.ceil(((double) pLevel.getDayTime() /24000));
+        int NextSCPSpawn = PlaceStructure.pSCPsList.get(RandomGenerator.getDefault().nextInt(0, PlaceStructure.pSCPsList.size()));
+
+        Player pPlayer = pLevel.players().get(RandomGenerator.getDefault().nextInt(0, pLevel.players().size()));
+
+        if (DayCount == NextDay){
+            PlaceStructure.placeStructureProtocol(pPlayer, NextSCPSpawn);
+            for (int i = pLevel.players().size(); i>=0; i--){
+                pLevel.players().get(i).sendSystemMessage(Component.literal("Spawned SCP " + PlaceStructure.pSCPsList.get(NextSCPSpawn)));
+            }
+        }
+        } catch (Exception e){
+            Level pLevel = pEvent.getServer().getLevel(Level.OVERWORLD);
+            int NextSCPSpawn = PlaceStructure.pSCPsList.get(RandomGenerator.getDefault().nextInt(0, PlaceStructure.pSCPsList.size()));
+
+            for (int i = pLevel.players().size(); i>=0; i--){
+                pLevel.players().get(i).sendSystemMessage(Component.literal("Failed to Spawn  " + PlaceStructure.pSCPsList.get(NextSCPSpawn)));
+            }
+            e.getCause();
+            e.getMessage();
+        }
     }
 }
+
 
